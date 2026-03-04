@@ -22,15 +22,16 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="hidden xl:flex flex-col gap-8 text-neutral-400"
           >
-            <a href="https://www.linkedin.com/in/sinan-pmk-6110b0256/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 hover:-translate-y-1 transition-all duration-300">
-              <FaLinkedin className="w-5 h-5" />
-            </a>
-            <a href="https://github.com/snanpmk" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 hover:-translate-y-1 transition-all duration-300">
-              <FaGithub className="w-5 h-5" />
-            </a>
-            <a href="https://wa.me/917736689774" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 hover:-translate-y-1 transition-all duration-300">
-              <FaWhatsapp className="w-5 h-5" />
-            </a>
+            {PORTFOLIO_DATA.socialLinks?.map((social) => {
+              const Icon = social.icon === 'FaLinkedin' ? FaLinkedin : 
+                          social.icon === 'FaGithub' ? FaGithub : 
+                          social.icon === 'FaWhatsapp' ? FaWhatsapp : FaLinkedin;
+              return (
+                <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 hover:-translate-y-1 transition-all duration-300">
+                  <Icon className="w-5 h-5" />
+                </a>
+              );
+            })}
           </motion.div>
 
           {/* Text Content */}
@@ -66,19 +67,37 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="space-y-4 mb-10 max-w-xl"
+              className="space-y-4 mb-8 max-w-xl"
             >
               <p className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed font-medium">
                 {tagline}
               </p>
-              
+            </motion.div>
+
+            {/* Social Links (Mobile/Tablet - below tagline) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex xl:hidden gap-6 text-neutral-400 mb-10 w-full justify-center md:justify-start"
+            >
+              {PORTFOLIO_DATA.socialLinks?.map((social) => {
+                const Icon = social.icon === 'FaLinkedin' ? FaLinkedin : 
+                            social.icon === 'FaGithub' ? FaGithub : 
+                            social.icon === 'FaWhatsapp' ? FaWhatsapp : FaLinkedin;
+                return (
+                  <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 hover:-translate-y-1 transition-all duration-300">
+                    <Icon className="w-6 h-6" />
+                  </a>
+                );
+              })}
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex  items-center justify-center md:justify-start gap-4"
+              className="flex items-center justify-center md:justify-start gap-4"
             >
               <Button 
                 className="group relative bg-emerald-500 hover:bg-emerald-400 text-black font-black px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] hover:-translate-y-1"

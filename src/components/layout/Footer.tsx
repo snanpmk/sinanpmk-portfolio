@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaArrowUp } from "react-icons/fa";
 import { PORTFOLIO_DATA } from "@/constants/data";
 
 export function Footer() {
@@ -32,31 +32,26 @@ export function Footer() {
           
           {/* Social Links */}
           <div className="flex items-center space-x-4">
-            <Link 
-              href="https://github.com/sinanpmk" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="p-3 rounded-full bg-white/5 border border-white/5 text-neutral-400 hover:text-white hover:bg-white/10 hover:border-white/10 transition-all duration-300 group"
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            </Link>
-            <Link 
-              href="https://linkedin.com/in/sinanpmk" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="p-3 rounded-full bg-white/5 border border-white/5 text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-500/20 transition-all duration-300 group"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            </Link>
-            <Link 
-              href="mailto:sinanpmk@gmail.com"
-              className="p-3 rounded-full bg-white/5 border border-white/5 text-neutral-400 hover:text-white hover:bg-white/10 hover:border-white/10 transition-all duration-300 group"
-              aria-label="Email"
-            >
-              <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            </Link>
+            {PORTFOLIO_DATA.socialLinks?.map((social) => {
+              const Icon = social.icon === 'FaLinkedin' ? FaLinkedin : 
+                           social.icon === 'FaGithub' ? FaGithub : 
+                           social.icon === 'FaWhatsapp' ? FaWhatsapp : FaLinkedin;
+                           
+              return (
+                <Link 
+                  key={social.name}
+                  href={social.url}
+                  target={social.name === 'WhatsApp' ? undefined : "_blank"}
+                  rel={social.name === 'WhatsApp' ? undefined : "noopener noreferrer"}
+                  className={`p-3 rounded-full bg-white/5 border border-white/5 text-neutral-400 hover:text-white hover:bg-white/10 hover:border-white/10 transition-all duration-300 group ${
+                    social.name === 'LinkedIn' ? 'hover:text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-500/20' : ''
+                  }`}
+                  aria-label={social.name}
+                >
+                  <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                </Link>
+              );
+            })}
           </div>
 
           {/* Back to Top */}
@@ -66,7 +61,7 @@ export function Footer() {
             aria-label="Back to top"
           >
             <div className="p-3 rounded-full bg-white/5 border border-white/5 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 group-hover:text-emerald-400 transition-all duration-300">
-              <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+              <FaArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
             </div>
             <span className="text-xs tracking-widest uppercase font-medium">Top</span>
           </button>

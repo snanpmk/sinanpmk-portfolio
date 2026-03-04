@@ -137,6 +137,23 @@ export const PORTFOLIO_DATA = {
             content: "Professional, efficient, and technically brilliant. Sinan delivered our landing page ahead of schedule with zero compromises on quality.",
             image: "https://res.cloudinary.com/dtgwrj1md/image/upload/v1772577044/Screenshot_From_2026-03-04_04-00-26_whvbdc.png"
         },
-        
+
+    ],
+    socialLinks: [
+        {
+            name: "LinkedIn",
+            url: "https://www.linkedin.com/in/sinan-pmk-6110b0256/",
+            icon: "FaLinkedin"
+        },
+        {
+            name: "GitHub",
+            url: "https://github.com/snanpmk",
+            icon: "FaGithub"
+        },
+        {
+            name: "WhatsApp",
+            url: "https://wa.me/917736689774",
+            icon: "FaWhatsapp"
+        }
     ]
 };
