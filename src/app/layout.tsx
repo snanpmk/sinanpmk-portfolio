@@ -35,8 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className={`${inter.variable} font-sans   text-white antialiased selection:bg-emerald-500/30 selection:text-white relative`}>
+    <html lang="en" className="dark scroll-smooth overflow-x-hidden">
+      <body className={`${inter.variable} font-sans text-white antialiased selection:bg-emerald-500/30 selection:text-white relative overflow-x-hidden`}>
         <MouseSpotlight />
         <AnimatedBackground />
         <Navbar />
