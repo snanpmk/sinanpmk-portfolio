@@ -144,6 +144,8 @@ export const PORTFOLIO_DATA = {
             name: "LinkedIn",
             url: "https://www.linkedin.com/in/sinan-pmk-6110b0256/",
             icon: "FaLinkedin",
+            color: "text-[#0A66C2]",
+            borderColor: "border-[#0A66C2]/30",
             hoverText: "hover:text-[#0A66C2]",
             hoverBg: "hover:bg-[#0A66C2]/10",
             hoverBorder: "hover:border-[#0A66C2]/20"
@@ -152,6 +154,8 @@ export const PORTFOLIO_DATA = {
             name: "GitHub",
             url: "https://github.com/snanpmk",
             icon: "FaGithub",
+            color: "text-white",
+            borderColor: "border-white/30",
             hoverText: "hover:text-white",
             hoverBg: "hover:bg-white/10",
             hoverBorder: "hover:border-white/20"
@@ -160,6 +164,8 @@ export const PORTFOLIO_DATA = {
             name: "WhatsApp",
             url: "https://wa.me/917736689774",
             icon: "FaWhatsapp",
+            color: "text-[#25D366]",
+            borderColor: "border-[#25D366]/30",
             hoverText: "hover:text-[#25D366]",
             hoverBg: "hover:bg-[#25D366]/10",
             hoverBorder: "hover:border-[#25D366]/20"

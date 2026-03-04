@@ -146,7 +146,7 @@ export function ContactSection() {
                 type="submit" 
                 size="lg" 
                 disabled={loading}
-                className="w-full mt-4 bg-primary hover:bg-primary text-black font-black uppercase tracking-widest py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="rounded-none uppercase tracking-widest text-xs font-bold"
               >
                 {loading ? "Sending..." : "Send Message"}
               </Button>

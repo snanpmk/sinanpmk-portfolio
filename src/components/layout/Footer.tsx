@@ -23,7 +23,7 @@ export function Footer() {
           {/* Brand & Copyright */}
           <div className="flex flex-col items-center md:items-start gap-3">
             <Link href="/" className="text-xl font-bold tracking-tighter bg-linear-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-              {PORTFOLIO_DATA.hero.name.split(' ')[0]}<span className="text-primary">.</span>
+              {PORTFOLIO_DATA.hero.name}<span className="text-primary">.</span>
             </Link>
             <p className="text-neutral-500 text-sm flex items-center gap-2">
               © {new Date().getFullYear()} All rights reserved.
