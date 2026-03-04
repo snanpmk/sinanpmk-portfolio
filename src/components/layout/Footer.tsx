@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="w-full relative z-10 mt-20">
       {/* Decorative top border with gradient */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-emerald-500/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" />
 
       {/* Background with blur and subtle gradient */}
       <div className="absolute inset-0 bg-neutral-950/40 backdrop-blur-xl -z-10" />
@@ -23,7 +23,7 @@ export function Footer() {
           {/* Brand & Copyright */}
           <div className="flex flex-col items-center md:items-start gap-3">
             <Link href="/" className="text-xl font-bold tracking-tighter bg-linear-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-              {PORTFOLIO_DATA.hero.name.split(' ')[0]}<span className="text-emerald-500">.</span>
+              {PORTFOLIO_DATA.hero.name.split(' ')[0]}<span className="text-primary">.</span>
             </Link>
             <p className="text-neutral-500 text-sm flex items-center gap-2">
               © {new Date().getFullYear()} All rights reserved.
@@ -58,7 +58,7 @@ export function Footer() {
             className="group flex flex-col items-center gap-2 text-neutral-500 hover:text-white transition-colors"
             aria-label="Back to top"
           >
-            <div className="p-3 rounded-full bg-white/5 border border-white/5 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 group-hover:text-emerald-400 transition-all duration-300">
+            <div className="p-3 rounded-full bg-white/5 border border-white/5 group-hover:bg-primary/10 group-hover:border-primary/20 group-hover:text-primary transition-all duration-300">
               <FaArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
             </div>
             <span className="text-xs tracking-widest uppercase font-medium">Top</span>

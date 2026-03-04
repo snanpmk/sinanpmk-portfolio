@@ -34,7 +34,7 @@ export function ProjectsSection() {
 
                 {/* Project Image Container */}
                 <div className="w-full md:w-[65%] relative group">
-                  <div className="relative overflow-hidden rounded-3xl aspect-video border border-white/10 shadow-3xl bg-neutral-900 group-hover:border-emerald-500/20 transition-all duration-700">
+                  <div className="relative overflow-hidden rounded-3xl aspect-video border border-white/10 shadow-3xl bg-neutral-900 group-hover:border-primary/20 transition-all duration-700">
                     {(
                       <>
                         <Image
@@ -55,20 +55,20 @@ export function ProjectsSection() {
                 <div className={`w-full md:w-[45%] md:absolute ${isEven ? 'md:-right-12' : 'md:-left-12'} z-30`}>
                   <GlassCard
                     variant="liquid"
-                    className="p-6 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-emerald-500/10 hover:border-emerald-500/30 transition-all duration-700"
+                    className="p-6 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-primary/10 hover:border-primary/30 transition-all duration-700"
                   >
                     <div className="space-y-6">
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
-                          <p className="text-emerald-500 font-mono text-xs mb-3 font-bold uppercase tracking-[0.2em]">{project.company}</p>
-                          <h3 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-2 group-hover:text-emerald-400 transition-colors">
+                          <p className="text-primary font-mono text-xs mb-3 font-bold uppercase tracking-[0.2em]">{project.company}</p>
+                          <h3 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-2 group-hover:text-primary transition-colors">
                             {project.title}
                           </h3>
-                          <p className="text-emerald-400/80 font-mono text-xs md:text-sm font-bold tracking-tight mb-4">{project.tagline}</p>
+                          <p className="text-primary/80 font-mono text-xs md:text-sm font-bold tracking-tight mb-4">{project.tagline}</p>
                         </div>
                         {project.github && (
                           <div className="flex gap-3">
-                            <a href={project.github} target="_blank" rel="noreferrer" className="p-3 bg-white/5 hover:bg-emerald-500 hover:text-black rounded-full transition-all duration-300 border border-white/10 shrink-0">
+                            <a href={project.github} target="_blank" rel="noreferrer" className="p-3 bg-white/5 hover:bg-primary hover:text-black rounded-full transition-all duration-300 border border-white/10 shrink-0">
                               <FaGithub className="w-5 h-5" />
                             </a>
                           </div>
@@ -86,7 +86,7 @@ export function ProjectsSection() {
                           {project.techStack.map((tech: string, i: number) => (
                             <span
                               key={i}
-                              className="px-3 py-1.5 text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 hover:bg-emerald-500/20 transition-all cursor-default"
+                              className="px-3 py-1.5 text-[11px] font-mono font-bold text-primary bg-primary/10 rounded-lg border border-primary/20 hover:border-primary/50 hover:bg-primary/20 transition-all cursor-default"
                             >
                               {tech}
                             </span>
@@ -107,7 +107,7 @@ export function ProjectsSection() {
                               </button>
                             ) : (
                               <a href={project.link} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-                                <button className="w-full sm:w-auto px-10 py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-black uppercase tracking-widest text-[11px] transition-all flex items-center justify-center gap-2 rounded-xl group/btn shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                                <button className="w-full sm:w-auto px-10 py-4 bg-primary hover:bg-primary text-black font-black uppercase tracking-widest text-[11px] transition-all flex items-center justify-center gap-2 rounded-xl group/btn shadow-[0_0_20px_rgba(99,102,241,0.3)]">
                                   Live Demo
                                   <FaExternalLinkAlt className="w-3 h-3 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                                 </button>

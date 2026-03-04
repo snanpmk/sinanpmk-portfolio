@@ -28,7 +28,7 @@ export function AnimatedBackground() {
           y: [0, 40, 0],
         }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] md:w-[60%] md:h-[60%] rounded-full bg-emerald-700/8 md:bg-emerald-700/12 blur-[60px] md:blur-[160px]" 
+        className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] md:w-[60%] md:h-[60%] rounded-full bg-primary/8 md:bg-primary/12 blur-[60px] md:blur-[160px]" 
       />
       
       {/* Hide this center-ish blob on mobile to keep it dark */}

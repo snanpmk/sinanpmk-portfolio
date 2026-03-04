@@ -55,7 +55,7 @@ export function ToastContainer() {
             className={cn(
               "pointer-events-auto flex items-center gap-4 px-6 py-4 rounded-2xl shadow-2xl border backdrop-blur-xl min-w-[300px] max-w-md",
               toast.type === 'success' 
-                ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400" 
+                ? "bg-primary/10 border-primary/20 text-primary" 
                 : "bg-red-500/10 border-red-500/20 text-red-400"
             )}
           >

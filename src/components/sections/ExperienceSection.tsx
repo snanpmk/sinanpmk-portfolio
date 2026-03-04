@@ -41,10 +41,10 @@ export function ExperienceSection() {
                 <div className="grid grid-cols-1 md:grid-cols-[100px_1fr] gap-0 md:gap-8 items-stretch">
                   {/* Serial Number & Vertical Path */}
                   <div className="relative flex flex-row md:flex-col items-center md:items-start pt-4 md:pt-8 gap-4 md:gap-0">
-                    <span className="text-4xl md:text-5xl font-black text-white/10 group-hover:text-emerald-500/20 transition-colors duration-500">
+                    <span className="text-4xl md:text-5xl font-black text-white/10 group-hover:text-primary/20 transition-colors duration-500">
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <div className="h-px w-12 md:h-full md:w-px bg-white/5 md:ml-6 mt-0 md:mt-4 group-hover:bg-emerald-500/30 transition-colors" />
+                    <div className="h-px w-12 md:h-full md:w-px bg-white/5 md:ml-6 mt-0 md:mt-4 group-hover:bg-primary/30 transition-colors" />
                   </div>
 
                   {/* Main Content Slab */}
@@ -57,18 +57,18 @@ export function ExperienceSection() {
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                         <div>
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                            <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-primary transition-colors">
                               {exp.role}
                             </h3>
                             {isFirst && (
-                              <span className="px-2 py-1 text-[9px] font-black bg-emerald-500 text-black rounded-sm tracking-widest">
+                              <span className="px-2 py-1 text-[9px] font-black bg-primary text-black rounded-sm tracking-widest">
                                 CURRENT
                               </span>
                             )}
                           </div>
                           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-neutral-300 font-medium">
                             <span className="flex items-center gap-2">
-                              <Icon className="text-emerald-500" />
+                              <Icon className="text-primary" />
                               {exp.company}
                             </span>
                             <span className="w-1 h-1 rounded-full bg-neutral-700 hidden md:block" />
@@ -86,7 +86,7 @@ export function ExperienceSection() {
                         <ul className="space-y-4">
                           {exp.description.map((desc, i) => (
                             <li key={i} className="flex items-start gap-4">
-                              <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                              <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0 shadow-[0_0_8px_rgba(99,102,241,0.5)]" />
                               <p className="text-neutral-200 leading-relaxed text-[15px] font-normal">
                                 {desc}
                               </p>
@@ -101,7 +101,7 @@ export function ExperienceSection() {
                             {exp.techStack.map((tech, i) => (
                               <span 
                                 key={i} 
-                                className="px-3 py-1.5 text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 hover:bg-emerald-500/20 transition-all cursor-default"
+                                className="px-3 py-1.5 text-[11px] font-mono font-bold text-primary bg-primary/10 rounded-lg border border-primary/20 hover:border-primary/50 hover:bg-primary/20 transition-all cursor-default"
                               >
                                 {tech}
                               </span>
@@ -111,7 +111,7 @@ export function ExperienceSection() {
                       </div>
 
                       {/* Accent Corner Glow */}
-                      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all duration-700" />
+                      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
                     </GlassCard>
                   </div>
                 </div>

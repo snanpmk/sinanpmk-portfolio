@@ -37,7 +37,7 @@ export function AboutSection() {
           >
             <div className="space-y-8">
               <div className="space-y-2">
-                <p className="text-emerald-500 font-mono text-xs font-black uppercase tracking-widest">Identity</p>
+                <p className="text-primary font-mono text-xs font-black uppercase tracking-widest">Identity</p>
                 <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">Frontend Developer.</h3>
               </div>
               
@@ -45,7 +45,7 @@ export function AboutSection() {
                 {about.summary.map((paragraph: string, i: number) => (
                   <p key={i}>{paragraph}</p>
                 ))}
-                <p className="text-neutral-400 text-base font-medium border-l-2 border-emerald-500/20 pl-4">
+                <p className="text-neutral-400 text-base font-medium border-l-2 border-primary/20 pl-4">
                   {about.specialization}
                 </p>
               </div>
@@ -53,7 +53,7 @@ export function AboutSection() {
               <div className="pt-8 border-t border-white/5 flex flex-wrap gap-12">
                 <div>
                   <p className="text-white font-black text-xs uppercase tracking-widest mb-2 opacity-50">Current Focus</p>
-                  <p className="text-emerald-500 text-base font-bold">Production-Grade React Systems</p>
+                  <p className="text-primary text-base font-bold">Production-Grade React Systems</p>
                 </div>
                 <div>
                   <p className="text-white font-black text-xs uppercase tracking-widest mb-2 opacity-50">Looking For</p>
@@ -78,9 +78,9 @@ export function AboutSection() {
                   >
                     <GlassCard 
                       variant="liquid" 
-                      className="p-5 flex items-center gap-5 border-white/5 hover:border-emerald-500/30 hover:scale-[1.02] transition-all duration-300"
+                      className="p-5 flex items-center gap-5 border-white/5 hover:border-primary/30 hover:scale-[1.02] transition-all duration-300"
                     >
-                      <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-500">
+                      <div className="p-3 bg-primary/10 rounded-xl text-primary">
                         <Icon className="w-4 h-4" />
                       </div>
                       <span className="text-white font-black text-sm tracking-tight uppercase">{principle}</span>

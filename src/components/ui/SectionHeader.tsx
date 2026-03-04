@@ -19,11 +19,11 @@ export function SectionHeader({ title, subtitle, className = "" }: SectionHeader
           {title}
         </h2>
         {subtitle && (
-          <p className="text-emerald-400 font-mono text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
+          <p className="text-primary font-mono text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
             {subtitle}
           </p>
         )}
-        <div className="h-1 w-20 bg-emerald-500 rounded-full" />
+        <div className="h-1 w-20 bg-primary rounded-full" />
       </motion.div>
     </div>
   );

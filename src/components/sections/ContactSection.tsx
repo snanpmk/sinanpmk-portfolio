@@ -86,19 +86,19 @@ export function ContactSection() {
             </p>
             <div className="space-y-6 text-neutral-300 text-sm mt-8">
               <p className="flex items-center gap-4">
-                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-emerald-400/80 group-hover:bg-emerald-500/10 transition-colors">
+                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover:bg-primary/10 transition-colors">
                   <FaEnvelope className="text-base" />
                 </span>
                 <span className="text-base text-neutral-300">pmksinan@gmail.com</span>
               </p>
               <p className="flex items-center gap-4">
-                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-emerald-400/80 group-hover:bg-emerald-500/10 transition-colors">
+                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover:bg-primary/10 transition-colors">
                   <FaPhone className="text-base" />
                 </span>
                 <span className="text-base text-neutral-300">+91 7736689774</span>
               </p>
               <p className="flex items-center gap-4">
-                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-emerald-400/80 group-hover:bg-emerald-500/10 transition-colors">
+                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover:bg-primary/10 transition-colors">
                   <FaMapMarkerAlt className="text-base" />
                 </span>
                 <span className="text-base text-neutral-300">Kozhikode, Kerala</span>
@@ -106,7 +106,7 @@ export function ContactSection() {
             </div>
           </div>
           
-          <GlassCard variant="liquid" className="flex-1 p-8 md:p-10 w-full backdrop-blur-3xl shadow-emerald-500/5">
+          <GlassCard variant="liquid" className="flex-1 p-8 md:p-10 w-full backdrop-blur-3xl shadow-primary/5">
             <form className="flex flex-col gap-6 relative z-10" onSubmit={handleSubmit} noValidate>
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm font-bold uppercase tracking-widest text-neutral-200">Name</label>
@@ -115,7 +115,7 @@ export function ContactSection() {
                   id="name" 
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all font-sans placeholder:text-neutral-600"
+                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans placeholder:text-neutral-600"
                   placeholder="Your Name"
                 />
               </div>
@@ -126,7 +126,7 @@ export function ContactSection() {
                   id="email" 
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all font-sans placeholder:text-neutral-600"
+                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans placeholder:text-neutral-600"
                   placeholder="yourname@gmail.com"
                 />
               </div>
@@ -137,7 +137,7 @@ export function ContactSection() {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-none font-sans placeholder:text-neutral-600"
+                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none font-sans placeholder:text-neutral-600"
                   placeholder="What's on your mind?"
                 />
               </div>
@@ -146,7 +146,7 @@ export function ContactSection() {
                 type="submit" 
                 size="lg" 
                 disabled={loading}
-                className="w-full mt-4 bg-emerald-500 hover:bg-emerald-600 text-black font-black uppercase tracking-widest py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full mt-4 bg-primary hover:bg-primary text-black font-black uppercase tracking-widest py-6 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? "Sending..." : "Send Message"}
               </Button>

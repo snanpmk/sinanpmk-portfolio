@@ -73,7 +73,7 @@ export function Navbar() {
               href={`#${item.id}`}
               className={cn(
                 "relative text-xs font-bold uppercase tracking-widest transition-colors duration-300 py-2",
-                activeSection === item.id ? "text-emerald-400" : "text-neutral-400 hover:text-white"
+                activeSection === item.id ? "text-primary" : "text-neutral-400 hover:text-white"
               )}
               onClick={(e) => {
                 e.preventDefault();
@@ -91,7 +91,7 @@ export function Navbar() {
               {activeSection === item.id && (
                 <motion.div
                   layoutId="desktopActiveLine"
-                  className="absolute left-0 right-0 -bottom-1 h-0.5 bg-emerald-400 rounded-full"
+                  className="absolute left-0 right-0 -bottom-1 h-0.5 bg-primary rounded-full"
                 />
               )}
             </Link>

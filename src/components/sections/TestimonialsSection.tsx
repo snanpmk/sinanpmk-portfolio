@@ -41,14 +41,14 @@ export function TestimonialsSection() {
                   className="p-8 relative min-h-[400px] flex flex-col justify-between"
                 >
                   <div>
-                    <FaQuoteLeft className="text-emerald-500/40 text-3xl mb-6" />
+                    <FaQuoteLeft className="text-primary/40 text-3xl mb-6" />
                     <p className="text-lg text-neutral-200 leading-relaxed italic mb-8">
                       "{testimonials[activeIndex].content || (testimonials[activeIndex] as any).quote}"
                     </p>
                   </div>
                   
                   <div className="flex items-center gap-4">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-500/20">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
                       <Image 
                         src={testimonials[activeIndex].image} 
                         alt={testimonials[activeIndex].name || (testimonials[activeIndex] as any).author} 
@@ -61,7 +61,7 @@ export function TestimonialsSection() {
                       <h4 className="font-black text-white text-sm uppercase tracking-tight">
                         {testimonials[activeIndex].name || (testimonials[activeIndex] as any).author}
                       </h4>
-                      <p className="text-emerald-500 font-mono text-[10px] font-black uppercase tracking-widest">
+                      <p className="text-primary font-mono text-[10px] font-black uppercase tracking-widest">
                         {testimonials[activeIndex].role}
                       </p>
                     </div>
@@ -75,7 +75,7 @@ export function TestimonialsSection() {
           <div className="flex justify-center items-center gap-6 mt-8">
             <button 
               onClick={prev}
-              className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-emerald-500 hover:text-black transition-all"
+              className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-primary hover:text-black transition-all"
             >
               <FaChevronLeft className="w-3 h-3" />
             </button>
@@ -84,13 +84,13 @@ export function TestimonialsSection() {
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
-                  className={`h-1.5 transition-all duration-300 rounded-full ${i === activeIndex ? 'w-8 bg-emerald-500' : 'w-2 bg-white/10'}`}
+                  className={`h-1.5 transition-all duration-300 rounded-full ${i === activeIndex ? 'w-8 bg-primary' : 'w-2 bg-white/10'}`}
                 />
               ))}
             </div>
             <button 
               onClick={next}
-              className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-emerald-500 hover:text-black transition-all"
+              className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-primary hover:text-black transition-all"
             >
               <FaChevronRight className="w-3 h-3" />
             </button>
@@ -110,17 +110,17 @@ export function TestimonialsSection() {
             >
               <GlassCard 
                 variant="liquid" 
-                className="p-10 h-full flex flex-col justify-between group-hover:border-emerald-500/30 transition-all duration-700"
+                className="p-10 h-full flex flex-col justify-between group-hover:border-primary/30 transition-all duration-700"
               >
                 <div>
-                  <FaQuoteLeft className="text-emerald-500/30 text-4xl mb-6 group-hover:text-emerald-500/60 transition-colors" />
+                  <FaQuoteLeft className="text-primary/30 text-4xl mb-6 group-hover:text-primary/60 transition-colors" />
                   <p className="text-lg text-neutral-200 leading-relaxed italic mb-8">
                     "{testimonial.content || testimonial.quote}"
                   </p>
                 </div>
                 
                 <div className="flex items-center gap-4">
-                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-emerald-500/20 group-hover:border-emerald-500/50 transition-colors">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors">
                     <Image 
                       src={testimonial.image} 
                       alt={testimonial.name || testimonial.author} 
@@ -133,7 +133,7 @@ export function TestimonialsSection() {
                     <h4 className="font-black text-white text-base tracking-tight leading-tight">
                       {testimonial.name || testimonial.author}
                     </h4>
-                    <p className="text-emerald-500 font-mono text-[10px] font-black uppercase tracking-widest mt-1">
+                    <p className="text-primary font-mono text-[10px] font-black uppercase tracking-widest mt-1">
                       {testimonial.role}
                     </p>
                   </div>

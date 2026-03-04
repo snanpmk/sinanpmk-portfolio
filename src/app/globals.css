@@ -3,16 +3,16 @@
 :root {
   --background: #080808;
   --foreground: #f8fafc;
-  --primary: #10b981;
-  /* Premium Emerald 500 */
-  --primary-glow: rgba(16, 185, 129, 0.15);
+  --primary: #6366f1;
+  /* Premium Indigo 500 */
+  --primary-glow: rgba(99, 102, 241, 0.15);
   --accent-glow: none;
   user-select: none;
 }
 
 @media (min-width: 768px) {
   :root {
-    --accent-glow: radial-gradient(circle at 50% -20%, rgba(52, 211, 153, 0.15), transparent 70%);
+    --accent-glow: radial-gradient(circle at 50% -20%, rgba(129, 140, 248, 0.15), transparent 70%);
   }
 }
 

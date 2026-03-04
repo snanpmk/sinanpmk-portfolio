@@ -22,7 +22,7 @@ export function EducationSection() {
         
         <div className="relative">
           {/* Central Line */}
-          <div className="absolute left-6 sm:left-1/2 transform sm:-translate-x-1/2 top-0 bottom-0 w-px bg-emerald-500/40"></div>
+          <div className="absolute left-6 sm:left-1/2 transform sm:-translate-x-1/2 top-0 bottom-0 w-px bg-primary/40"></div>
           
           <div className="flex flex-col gap-12 sm:gap-0">
             {PORTFOLIO_DATA.education.map((edu, index) => {
@@ -32,7 +32,7 @@ export function EducationSection() {
                   
                   {/* Timeline Dot (Desktop & Mobile) */}
                   <div 
-                    className="absolute left-6 sm:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-emerald-500 rounded-full border-0 z-10" 
+                    className="absolute left-6 sm:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-0 z-10" 
                     style={{ top: '6px' }}
                   ></div>
                   

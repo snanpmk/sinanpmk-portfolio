@@ -40,7 +40,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-4 text-emerald-500 font-mono text-xs md:text-sm font-black uppercase tracking-[0.4em]"
+              className="mb-4 text-primary font-mono text-xs md:text-sm font-black uppercase tracking-[0.4em]"
             >
               {title}
             </motion.div>
@@ -58,7 +58,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-6 py-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black bg-clip-text text-transparent bg-linear-to-r from-emerald-400 to-cyan-300 tracking-tight"
+              className="mb-6 py-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black bg-clip-text text-transparent bg-linear-to-r from-primary to-cyan-300 tracking-tight"
             >
               {headline}
             </motion.div>
@@ -100,7 +100,7 @@ export function HeroSection() {
               className="flex items-center justify-center md:justify-start gap-4"
             >
               <Button
-                className="group relative bg-emerald-500 hover:bg-emerald-400 text-black font-black px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] hover:-translate-y-1"
+                className="group relative bg-primary hover:bg-primary text-black font-black px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(99,102,241,0.2)] hover:shadow-[0_0_40px_rgba(99,102,241,0.4)] hover:-translate-y-1"
                 onClick={() => {
                   document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
                 }}
@@ -113,7 +113,7 @@ export function HeroSection() {
                 className="px-8 py-4 border-white/10 hover:bg-white/5 text-white font-bold rounded-xl"
                 onClick={() => window.open('/resume.pdf', '_blank')}
               >
-                <FaDownload className="mr-2 w-4 h-4 text-emerald-500" />
+                <FaDownload className="mr-2 w-4 h-4 text-primary" />
                 Resume
               </Button>
             </motion.div>
@@ -128,10 +128,10 @@ export function HeroSection() {
               className="order-1 md:order-2 relative flex justify-center md:justify-end"
             >
               {/* Soft background glow */}
-              {/* <div className="absolute inset-0 bg-emerald-500/10 blur-[120px] rounded-full scale-150 opacity-50" /> */}
+              {/* <div className="absolute inset-0 bg-primary/10 blur-[120px] rounded-full scale-150 opacity-50" /> */}
 
               <div
-                className="relative w-38 h-38 sm:w-72 sm:h-72 md:w-[400px] md:h-[400px] overflow-hidden bg-emerald-500/5 border-2 border-emerald-500/10"
+                className="relative w-38 h-38 sm:w-72 sm:h-72 md:w-[400px] md:h-[400px] overflow-hidden bg-primary/5 border-2 border-primary/10"
                 style={{
                   borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
                   animation: 'blob 10s ease-in-out infinite alternate'
