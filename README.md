@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧑‍💻 Sinan's Portfolio
 
-## Getting Started
+A modern, high-performance personal portfolio website built with **Next.js 16**, **TypeScript**, and **Tailwind CSS v4**. Features a sleek dark-mode design with glassmorphism UI, smooth Framer Motion animations, a parallax hero section, and a functional contact form powered by Resend.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- **Parallax Hero Section** — Immersive layered parallax scroll effect with animated background shapes
+- **Mini-Dashboard Layout** — Hero cards showcasing role, tech stack, featured project, and experience at a glance
+- **Glassmorphism UI** — Reusable `GlassCard` component with backdrop blur, subtle borders, and depth
+- **Smooth Animations** — Framer Motion powered entrance animations, hover effects, and micro-interactions
+- **Mouse Spotlight** — Interactive cursor spotlight effect for a premium feel
+- **Sections**: Hero, About, Skills, Experience, Projects, Education, Testimonials, Contact
+- **Functional Contact Form** — Sends emails via [Resend](https://resend.com) with toast notifications
+- **Fully Responsive** — Optimised for desktop, tablet, and mobile viewports
+- **Performance Optimised** — `next/image`, `next/font`, dynamic imports, and React Strict Mode
+
+---
+
+## 🛠 Tech Stack
+
+| Category       | Technology                              |
+|----------------|-----------------------------------------|
+| Framework      | Next.js 16 (App Router)                 |
+| Language       | TypeScript 5                            |
+| Styling        | Tailwind CSS v4                         |
+| Animations     | Framer Motion 12                        |
+| Icons          | React Icons 5                           |
+| Email          | Resend                                  |
+| Utilities      | clsx, tailwind-merge                    |
+| Linting        | ESLint 9 + eslint-config-next           |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with fonts and metadata
+│   ├── page.tsx            # Main page assembling all sections
+│   ├── globals.css         # Global styles and CSS custom properties
+│   └── api/
+│       └── contact/        # API route for contact form (Resend)
+├── components/
+│   ├── layout/             # Navbar, Footer
+│   ├── sections/           # Page sections (Hero, About, Skills, …)
+│   │   ├── HeroSection.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── SkillsSection.tsx
+│   │   ├── ExperienceSection.tsx
+│   │   ├── ProjectsSection.tsx
+│   │   ├── EducationSection.tsx
+│   │   ├── TestimonialsSection.tsx
+│   │   └── ContactSection.tsx
+│   └── ui/                 # Reusable UI primitives
+│       ├── GlassCard.tsx
+│       ├── Button.tsx
+│       ├── SectionContainer.tsx
+│       ├── SectionHeader.tsx
+│       ├── AnimatedBackground.tsx
+│       ├── MouseSpotlight.tsx
+│       └── Toast.tsx
+├── constants/              # Shared data (projects, skills, experience, …)
+└── lib/                    # Utility helpers
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm / yarn / pnpm / bun
+
+### Installation
+
+```bash
+git clone https://github.com/sinanpmk/portolio.git
+cd portolio
+npm install
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+RESEND_API_KEY=your_resend_api_key_here
+```
+
+> Sign up at [resend.com](https://resend.com) to get a free API key for the contact form.
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📜 Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Script        | Description                      |
+|---------------|----------------------------------|
+| `npm run dev` | Start the development server     |
+| `npm run build` | Build the production bundle    |
+| `npm run start` | Start the production server    |
+| `npm run lint` | Run ESLint                      |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the [MIT License](LICENSE).
