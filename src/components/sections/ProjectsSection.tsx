@@ -14,7 +14,7 @@ export function ProjectsSection() {
     <SectionContainer id="projects">
       <div className="max-w-7xl mx-auto md:px-0">
         <SectionHeader title="Featured Work." />
-        
+
         <div className="space-y-32 md:space-y-56">
           {PORTFOLIO_DATA.projects.map((project: any, index: number) => {
             const isEven = index % 2 === 0;
@@ -35,30 +35,11 @@ export function ProjectsSection() {
                 {/* Project Image Container */}
                 <div className="w-full md:w-[65%] relative group">
                   <div className="relative overflow-hidden rounded-3xl aspect-video border border-white/10 shadow-3xl bg-neutral-900 group-hover:border-emerald-500/20 transition-all duration-700">
-                    {project.isConfidential ? (
-                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-[radial-gradient(at_top_right,var(--tw-gradient-stops))] from-emerald-500/15 via-neutral-950 to-neutral-950 px-6 text-center">
-                        <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-emerald-500/5 flex items-center justify-center border border-emerald-500/20 mb-4 md:mb-8 group-hover:scale-110 transition-transform duration-700 shadow-[0_0_30px_rgba(16,185,129,0.1)]">
-                          <FaLock className="w-6 h-6 md:w-10 md:h-10 text-emerald-500" />
-                        </div>
-                        <div className="space-y-2 md:space-y-4">
-                          <h4 className="text-white font-black text-lg md:text-3xl tracking-tighter uppercase font-mono">
-                            Confidential Project
-                          </h4>
-                          <p className="text-emerald-500 font-mono text-[10px] md:text-sm font-bold uppercase tracking-[0.4em] opacity-80">
-                            Enterprise Financial Architecture
-                          </p>
-                          <div className="pt-2 md:pt-4">
-                            <span className="px-3 py-1.5 md:px-4 md:py-2 bg-white/5 rounded-full text-[9px] md:text-xs text-neutral-400 font-black uppercase tracking-widest border border-white/5 backdrop-blur-sm">
-                              Screenshots Restricted by NDA
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
+                    {(
                       <>
-                        <Image 
-                          src={project.image} 
-                          alt={project.title} 
+                        <Image
+                          src={project.image}
+                          alt={project.title}
                           fill
                           sizes="(max-width: 768px) 100vw, 65vw"
                           className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
@@ -72,8 +53,8 @@ export function ProjectsSection() {
 
                 {/* Floating Content Card (Liquid Glass) */}
                 <div className={`w-full md:w-[45%] md:absolute ${isEven ? 'md:-right-12' : 'md:-left-12'} z-30`}>
-                  <GlassCard 
-                    variant="liquid" 
+                  <GlassCard
+                    variant="liquid"
                     className="p-6 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-emerald-500/10 hover:border-emerald-500/30 transition-all duration-700"
                   >
                     <div className="space-y-6">
@@ -103,8 +84,8 @@ export function ProjectsSection() {
                         <p className="text-[10px] font-black uppercase tracking-widest text-neutral-500">Built With</p>
                         <div className="flex flex-wrap gap-2">
                           {project.techStack.map((tech: string, i: number) => (
-                            <span 
-                              key={i} 
+                            <span
+                              key={i}
                               className="px-3 py-1.5 text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 hover:bg-emerald-500/20 transition-all cursor-default"
                             >
                               {tech}
@@ -117,7 +98,7 @@ export function ProjectsSection() {
                         {project.link && (
                           <div className="w-full sm:w-auto">
                             {project.isConfidential || project.link === "#" ? (
-                              <button 
+                              <button
                                 disabled
                                 className="w-full sm:w-auto px-10 py-4 bg-white/5 text-neutral-500 font-black uppercase tracking-widest text-[11px] rounded-xl flex items-center justify-center gap-2 cursor-not-allowed border border-white/5 opacity-60"
                               >
@@ -135,7 +116,7 @@ export function ProjectsSection() {
                           </div>
                         )}
                       </div>
-                      
+
                       {/* Interaction hint */}
                       <div className="hidden md:flex items-center gap-2 text-neutral-500 text-[10px] uppercase tracking-widest font-black mt-4">
                         <div className="h-px w-8 bg-neutral-800" />

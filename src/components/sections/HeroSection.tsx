@@ -14,20 +14,20 @@ export function HeroSection() {
     <section id="hero" className="relative min-h-[90vh] md:min-h-screen flex items-center pt-10 md:pt-20 overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 max-w-[1400px] relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-24 w-full">
-          
+
           {/* Social Links (Left Strip) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="hidden xl:flex flex-col gap-8 text-neutral-400"
           >
             {PORTFOLIO_DATA.socialLinks?.map((social) => {
-              const Icon = social.icon === 'FaLinkedin' ? FaLinkedin : 
-                          social.icon === 'FaGithub' ? FaGithub : 
-                          social.icon === 'FaWhatsapp' ? FaWhatsapp : FaLinkedin;
+              const Icon = social.icon === 'FaLinkedin' ? FaLinkedin :
+                social.icon === 'FaGithub' ? FaGithub :
+                  social.icon === 'FaWhatsapp' ? FaWhatsapp : FaLinkedin;
               return (
-                <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 hover:-translate-y-1 transition-all duration-300">
+                <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className={`transition-all duration-300 hover:-translate-y-1 ${social.hoverText}`}>
                   <Icon className="w-5 h-5" />
                 </a>
               );
@@ -62,8 +62,8 @@ export function HeroSection() {
             >
               {headline}
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -75,18 +75,18 @@ export function HeroSection() {
             </motion.div>
 
             {/* Social Links (Mobile/Tablet - below tagline) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex xl:hidden gap-6 text-neutral-400 mb-10 w-full justify-center md:justify-start"
             >
               {PORTFOLIO_DATA.socialLinks?.map((social) => {
-                const Icon = social.icon === 'FaLinkedin' ? FaLinkedin : 
-                            social.icon === 'FaGithub' ? FaGithub : 
-                            social.icon === 'FaWhatsapp' ? FaWhatsapp : FaLinkedin;
+                const Icon = social.icon === 'FaLinkedin' ? FaLinkedin :
+                  social.icon === 'FaGithub' ? FaGithub :
+                    social.icon === 'FaWhatsapp' ? FaWhatsapp : FaLinkedin;
                 return (
-                  <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 hover:-translate-y-1 transition-all duration-300">
+                  <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className={`transition-all duration-300 hover:-translate-y-1 ${social.hoverText}`}>
                     <Icon className="w-6 h-6" />
                   </a>
                 );
@@ -99,7 +99,7 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex items-center justify-center md:justify-start gap-4"
             >
-              <Button 
+              <Button
                 className="group relative bg-emerald-500 hover:bg-emerald-400 text-black font-black px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] hover:-translate-y-1"
                 onClick={() => {
                   document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -108,8 +108,8 @@ export function HeroSection() {
                 View My Work
                 <FaArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="px-8 py-4 border-white/10 hover:bg-white/5 text-white font-bold rounded-xl"
                 onClick={() => window.open('/resume.pdf', '_blank')}
               >
@@ -129,20 +129,20 @@ export function HeroSection() {
             >
               {/* Soft background glow */}
               {/* <div className="absolute inset-0 bg-emerald-500/10 blur-[120px] rounded-full scale-150 opacity-50" /> */}
-              
-              <div 
+
+              <div
                 className="relative w-38 h-38 sm:w-72 sm:h-72 md:w-[400px] md:h-[400px] overflow-hidden bg-emerald-500/5 border-2 border-emerald-500/10"
                 style={{
                   borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
                   animation: 'blob 10s ease-in-out infinite alternate'
                 }}
               >
-                <Image 
-                  src={image} 
+                <Image
+                  src={image}
                   alt={name}
                   fill
                   priority
-                  sizes="(max-width: 640px) 14rem, (max-width: 768px) 18rem, 400px" 
+                  sizes="(max-width: 640px) 14rem, (max-width: 768px) 18rem, 400px"
                   className="object-cover scale-105 hover:scale-100 transition-transform duration-[2s] ease-out"
                 />
               </div>
@@ -151,8 +151,9 @@ export function HeroSection() {
 
         </div>
       </div>
-      
-      <style dangerouslySetInnerHTML={{__html: `
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes blob {
           0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
           50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }

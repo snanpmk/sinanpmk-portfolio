@@ -72,7 +72,7 @@ export const PORTFOLIO_DATA = {
             company: "Finnest Technologies",
             description: "A high-security, enterprise-grade system managing full remittance lifecycles and AML workflows. Features complex RBAC schemas, suspicious activity monitoring, and automated financial operations.",
             techStack: ["React", "Next.js", "Zustand", "Tailwind CSS"],
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+            image: "https://res.cloudinary.com/dtgwrj1md/image/upload/v1772587846/dinero_lhuklv.png",
             link: "#",
             isConfidential: true
         },
@@ -91,7 +91,7 @@ export const PORTFOLIO_DATA = {
             company: "Personal Project",
             description: "A full-stack MERN platform featuring an intuitive shopping experience, advanced admin dashboard for inventory management, and secure Razorpay payment integration.",
             techStack: ["MongoDB", "Express", "React", "Node.js"],
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+            image: "https://res.cloudinary.com/dtgwrj1md/image/upload/v1772587913/Screenshot_From_2026-03-04_07-01-17_ek5gvr.png",
             link: "#"
         }
     ],
@@ -143,17 +143,26 @@ export const PORTFOLIO_DATA = {
         {
             name: "LinkedIn",
             url: "https://www.linkedin.com/in/sinan-pmk-6110b0256/",
-            icon: "FaLinkedin"
+            icon: "FaLinkedin",
+            hoverText: "hover:text-[#0A66C2]",
+            hoverBg: "hover:bg-[#0A66C2]/10",
+            hoverBorder: "hover:border-[#0A66C2]/20"
         },
         {
             name: "GitHub",
             url: "https://github.com/snanpmk",
-            icon: "FaGithub"
+            icon: "FaGithub",
+            hoverText: "hover:text-white",
+            hoverBg: "hover:bg-white/10",
+            hoverBorder: "hover:border-white/20"
         },
         {
             name: "WhatsApp",
             url: "https://wa.me/917736689774",
-            icon: "FaWhatsapp"
+            icon: "FaWhatsapp",
+            hoverText: "hover:text-[#25D366]",
+            hoverBg: "hover:bg-[#25D366]/10",
+            hoverBorder: "hover:border-[#25D366]/20"
         }
     ]
 };
