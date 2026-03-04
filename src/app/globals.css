@@ -13,6 +13,10 @@
   /* user-select: none; */
 }
 
+:root {
+  --accent-glow: radial-gradient(circle at 50% -20%, rgba(129, 140, 248, 0.06), transparent 60%);
+}
+
 @media (min-width: 768px) {
   :root {
     --accent-glow: radial-gradient(circle at 50% -20%, rgba(129, 140, 248, 0.15), transparent 70%);

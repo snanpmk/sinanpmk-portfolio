@@ -29,10 +29,13 @@ export const PORTFOLIO_DATA = {
             duration: "May 2024 – Feb 2026",
             location: "Kochi",
             description: [
-                "Led frontend development for a real-time trading dashboard using Next.js and WebSockets.",
-                "Optimized application performance and improved initial load time."
+                "Contributed to core financial modules including remittance workflows and AML (Anti-Money Laundering) systems ensuring security and regulatory compliance.",
+                "Implemented complex Role-Based Access Control (RBAC) with field-level, tab-level, and action-level permissions across enterprise modules.",
+                "Worked on multiple financial systems including Treasury, Accounts, Fund Manager, Deal Manager, and Vouchers while collaborating closely with backend and QA teams.",
+                "Represented the frontend team during a client visit in Qatar, supporting deployment discussions and stakeholder collaboration."
             ],
-            techStack: ["React 18", "Next.js", "Zustand", "TypeScript", "REST APIs", "JWT", "Tailwind CSS", "React Query"]
+            techStack: ["React 18", "Next.js", "Zustand", "TypeScript", "REST APIs", "JWT", "Tailwind CSS", "React Query"],
+            link: "https://www.linkedin.com/company/finnest-technologies/posts/?feedView=all"
         },
         {
             company: "Freelance",
@@ -40,10 +43,12 @@ export const PORTFOLIO_DATA = {
             duration: "Feb 2024 – Present",
             location: "Remote",
             description: [
-                "Delivered custom frontend solutions focusing on performance and responsive design.",
-                "Managed end-to-end development of dynamic single-page applications for diverse clients."
-            ],
-            techStack: ["React", "Next.js", "Tailwind CSS", "TypeScript"]
+                "Designed and developed custom web applications for clients including order management systems and high-converting landing pages.",
+                "Delivered performant, responsive single-page applications tailored to business workflows and user needs.",
+                "Built and maintained independent products such as SyncConnect while managing end-to-end development from concept to deployment."
+            ]
+            ,
+            techStack: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Express", "MongoDB", "Redux Toolkit",]
         },
         {
             company: "Brototype",
@@ -51,10 +56,13 @@ export const PORTFOLIO_DATA = {
             duration: "Jan 2023 – Feb 2024",
             location: "Kochi",
             description: [
-                "Developed full-stack web applications including an e-commerce platform with external API integrations.",
-                "Designed and implemented modular backend architectures featuring secure authentication and REST standards."
-            ],
-            techStack: ["React", "Node.js", "Express", "MongoDB", "Redux Toolkit", "Tailwind CSS"]
+                "Completed an intensive full-stack development bootcamp focused on the MERN stack (MongoDB, Express.js, React, Node.js).",
+                "Built multiple hands-on projects including a full-featured e-commerce application with API integrations.",
+                "Developed practical skills in RESTful API design, authentication, and end-to-end application development."
+            ]
+            ,
+            techStack: ["React", "Node.js", "Express", "MongoDB", "Redux Toolkit", "Tailwind CSS"],
+            link: "https://www.linkedin.com/company/brototype/"
         },
         {
             company: "Iqraa",
@@ -75,8 +83,8 @@ export const PORTFOLIO_DATA = {
             company: "Finnest Technologies",
             description: "A high-security, enterprise-grade system managing full remittance lifecycles and AML workflows. Features complex RBAC schemas, suspicious activity monitoring, and automated financial operations.",
             techStack: ["React", "Next.js", "Zustand", "Tailwind CSS"],
-            image: "https://res.cloudinary.com/dtgwrj1md/image/upload/v1772587846/dinero_lhuklv.png",
-            link: "#",
+            image: "https://res.cloudinary.com/dtgwrj1md/image/upload/v1772624060/cust-dash_zjjuuz.png",
+            link: "https://www.linkedin.com/company/finnest-technologies/posts/?feedView=all",
             isConfidential: true
         },
         {

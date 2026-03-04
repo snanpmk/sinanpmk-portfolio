@@ -5,7 +5,7 @@ import { PORTFOLIO_DATA } from "@/constants/data";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { FaBriefcase, FaCode, FaChalkboardTeacher } from "react-icons/fa";
+import { FaBriefcase, FaCode, FaChalkboardTeacher, FaExternalLinkAlt } from "react-icons/fa";
 
 const roleIcons: Record<string, any> = {
   "Frontend Engineer": FaCode,
@@ -28,7 +28,7 @@ export function ExperienceSection() {
           {PORTFOLIO_DATA.experience.map((exp, index) => {
             const Icon = roleIcons[exp.role] || FaBriefcase;
             const isFirst = index === 0;
-            
+
             return (
               <motion.div
                 key={index}
@@ -49,8 +49,8 @@ export function ExperienceSection() {
 
                   {/* Main Content Slab */}
                   <div className="relative py-4 md:py-8">
-                    <GlassCard 
-                      variant="liquid" 
+                    <GlassCard
+                      variant="liquid"
                       className="rounded-2xl md:rounded-3xl p-6 md:p-10 transition-all duration-700"
                     >
                       {/* Top Bar */}
@@ -69,13 +69,25 @@ export function ExperienceSection() {
                           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-neutral-300 font-medium">
                             <span className="flex items-center gap-2">
                               <Icon className="text-primary" />
-                              {exp.company}
+                              {(exp as any).link ? (
+                                <a
+                                  href={(exp as any).link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="hover:text-primary transition-colors flex items-center gap-2"
+                                >
+                                  {exp.company}
+                                  <FaExternalLinkAlt className="text-[10px] text-neutral-400 group-hover:text-primary/70 transition-colors" />
+                                </a>
+                              ) : (
+                                exp.company
+                              )}
                             </span>
                             <span className="w-1 h-1 rounded-full bg-neutral-700 hidden md:block" />
                             <span className="text-sm font-mono text-neutral-400">{exp.duration}</span>
                           </div>
                         </div>
-                        
+
                         <div className="text-right">
                           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500 font-black">{exp.location}</p>
                         </div>
@@ -99,8 +111,8 @@ export function ExperienceSection() {
                           <p className="text-[10px] font-black uppercase tracking-widest text-neutral-500">Tech Ecosystem</p>
                           <div className="flex flex-wrap gap-2">
                             {exp.techStack.map((tech, i) => (
-                              <span 
-                                key={i} 
+                              <span
+                                key={i}
                                 className="px-3 py-1.5 text-[11px] font-mono font-bold text-primary bg-primary/10 rounded-lg border border-primary/20 hover:border-primary/50 hover:bg-primary/20 transition-all cursor-default"
                               >
                                 {tech}

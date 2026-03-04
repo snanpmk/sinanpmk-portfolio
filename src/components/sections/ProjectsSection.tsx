@@ -28,7 +28,7 @@ export function ProjectsSection() {
                 className={`relative flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-0`}
               >
                 {/* Background Large Index */}
-                <span className={`absolute -top-20 ${isEven ? 'left-0' : 'right-0'} text-[10rem] md:text-[15rem] font-black text-white/5 select-none pointer-events-none tracking-tighter`}>
+                <span className={`absolute -top-16 md:-top-24 ${isEven ? '-left-4 md:-left-8' : '-right-4 md:-right-8'} text-[8rem] md:text-[14rem] lg:text-[16rem] font-black text-white/6 select-none pointer-events-none tracking-tighter leading-none [text-shadow:0_0_60px_rgba(129,140,248,0.15)]`}>
                   {(index + 1).toString().padStart(2, '0')}
                 </span>
 
