@@ -10,12 +10,15 @@ export const PORTFOLIO_DATA = {
     },
     about: {
         summary: [
-            "I'm a Frontend Systems Engineer with over 2 years of experience at Finnest Technologies. I specialize in building robust, production-ready applications using the MERN stack.",
-            "My focus is on delivering measurable impact through performance optimization—recently reducing bundle sizes by 35%—and architecting reusable component systems that drive engineering efficiency."
+            "I’m a frontend developer based in Kozhikode, Kerala, specializing in building modern and scalable web applications using React.js and Next.js. I focus on creating clean, responsive interfaces and delivering smooth user experiences.",
+            "I believe in writing clean, maintainable code and structuring applications for scalability. I enjoy breaking down complex problems and turning them into simple, efficient solutions."
         ],
-        specialization: "Specializing in React, Next.js, and TypeScript with a core focus on SSR/SSG and deep state management strategies.",
         principles: [
-            "SSR / SSG", "Code Splitting", "Performance", "Clean State"
+            'Performance',
+            'Architecture',
+            'Clean Code',
+            'Clean State',
+            'Mentoring'
         ],
         lookingFor: "Mid-level Frontend / Fullstack roles"
     },
@@ -27,7 +30,7 @@ export const PORTFOLIO_DATA = {
             location: "Kochi",
             description: [
                 "Led frontend development for a real-time trading dashboard using Next.js and WebSockets.",
-                "Optimized application performance, reducing bundle size by 35% and improving initial load time."
+                "Optimized application performance and improved initial load time."
             ],
             techStack: ["React 18", "Next.js", "Zustand", "TypeScript", "REST APIs", "JWT", "Tailwind CSS", "React Query"]
         },
