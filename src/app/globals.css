@@ -10,7 +10,7 @@
   --primary-glow: rgba(129, 140, 248, 0.1);
   --accent: #d4d4d8;
   --accent-glow: none;
-  /* user-select: none; */
+  user-select: none;
 }
 
 :root {

@@ -14,12 +14,12 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
-    
+
     // Intersection Observer for active sections
     const sections = ["hero", "about", "experience", "projects", "skills", "contact"];
-    
+
     // Adjust rootMargin to account for top navbar on desktop and bottom on mobile
     const observerOptions = {
       root: null,
@@ -60,7 +60,7 @@ export function Navbar() {
   return (
     <>
       {/* Desktop Top Nav */}
-      <nav 
+      <nav
         className={cn(
           "fixed top-0 left-0 right-0 z-50 hidden md:flex justify-center items-center transition-all duration-300",
           scrolled ? "py-4 backdrop-blur-xl bg-neutral-950/80 border-b border-white/5 shadow-lg shadow-black/20" : "py-6 bg-transparent border-b border-transparent"
@@ -86,7 +86,7 @@ export function Navbar() {
               }}
             >
               {item.label}
-              
+
               {/* Active Underline */}
               {activeSection === item.id && (
                 <motion.div

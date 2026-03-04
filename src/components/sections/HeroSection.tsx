@@ -15,12 +15,11 @@ export function HeroSection() {
     offset: ["start start", "end start"],
   });
 
-  // Responsive Parallax: using percentages maps correctly across all screen sizes
-  // - map over the full section scroll distance
-  // - percentages prevent clipping and excessive transform on small screens
-  const y1 = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
-  const y2 = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  // Parallax: larger travel distance makes the layered depth effect clearly visible on desktop
+  const y1 = useTransform(scrollYProgress, [0, 1], ["0%", "-35%"]);
+  const y2 = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
+  const scale2 = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
 
   return (
     <section
@@ -120,7 +119,7 @@ export function HeroSection() {
           {/* Visual Piece — Editorial Frame */}
           <div className="relative flex justify-center lg:justify-end w-full lg:w-auto">
             <motion.div
-              style={{ y: y2 }}
+              style={{ y: y2, scale: scale2 }}
               initial={{ opacity: 0, x: 0, y: 30 }}
               animate={{ opacity: 1, x: 0, y: 10 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
