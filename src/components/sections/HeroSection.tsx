@@ -171,8 +171,33 @@ export function HeroSection() {
         style={{ opacity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[9px] font-mono text-neutral-600 uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-10 bg-linear-to-b from-primary/50 to-transparent" />
+        <motion.span
+          className="text-[9px] font-mono text-neutral-600 uppercase tracking-widest"
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8, ease: "easeOut" }}
+        >
+          Scroll
+        </motion.span>
+
+        {/* Drip line */}
+        <div className="relative w-px h-10 overflow-hidden">
+          {/* Static track */}
+          <div className="absolute inset-0 bg-linear-to-b from-white/5 to-transparent" />
+          {/* Animated drip */}
+          <motion.div
+            className="absolute left-0 w-px bg-linear-to-b from-transparent via-primary to-transparent"
+            initial={{ top: "-100%", height: "100%" }}
+            animate={{ top: "100%" }}
+            transition={{
+              duration: 1.2,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatDelay: 0.6,
+              delay: 2.4,
+            }}
+          />
+        </div>
       </motion.div>
     </section>
   );
