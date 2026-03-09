@@ -153,7 +153,7 @@ export const PORTFOLIO_DATA = {
     socialLinks: [
         {
             name: "LinkedIn",
-            url: "https://www.linkedin.com/in/sinan-pmk-6110b0256/",
+            url: "https://www.linkedin.com/in/sinan-pmk/",
             icon: "FaLinkedin",
             color: "text-[#0A66C2]",
             borderColor: "border-[#0A66C2]/30",
