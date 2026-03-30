@@ -96,6 +96,15 @@ export const PORTFOLIO_DATA = {
             image: "https://res.cloudinary.com/dtgwrj1md/image/upload/v1772569866/Screenshot_From_2026-03-04_01-58-14_rl24sb.png",
             link: "https://synconnect.in"
         },
+         {
+            title: "Carewell",
+            tagline: "AI-Powered Clinical Management SaaS",
+            company: "Personal Project",
+            description: "A clinical management platform for homeopathic doctors to manage patient cases. Features structured UI for medical histories, Google Gemini AI for automated data organization, and a high-performance MongoDB caching system with secure RBAC.",
+            techStack: ["Next.js", "MongoDB", "Gemini AI", "Tailwind CSS", "TypeScript"],
+            image: "https://res.cloudinary.com/dtgwrj1md/image/upload/v1774367513/Screenshot_From_2026-03-24_21-21-16_cd2ly6.png",
+            link: "https://carewell-ai-clinic-management.vercel.app/"
+        },
         {
             title: "Venture Apparels",
             tagline: "Modern E-Commerce with Seamless Checkout",
