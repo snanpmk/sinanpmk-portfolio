@@ -13,10 +13,6 @@ interface Toast {
   message: string;
 }
 
-interface ToastContextType {
-  showToast: (type: ToastType, message: string) => void;
-}
-
 // Simple state management for toasts
 let toastCallback: (type: ToastType, message: string) => void = () => {};
 

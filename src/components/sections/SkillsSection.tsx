@@ -5,16 +5,18 @@ import { PORTFOLIO_DATA } from "@/constants/data";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { fadeInLeft, scaleIn, staggerContainer, VIEWPORT } from "@/lib/motion";
 import {
   SiJavascript, SiTypescript, SiHtml5, SiCss,
-  SiReact, SiNextdotjs, SiVite, SiTailwindcss, SiRedux, SiBootstrap, SiReactrouter, SiAxios,
+  SiReact, SiNextdotjs, SiVite, SiTailwindcss, SiRedux, SiReactquery, SiBootstrap, SiReactrouter, SiAxios,
   SiNodedotjs, SiExpress, SiMongodb, SiJsonwebtokens,
-  SiGit, SiGithub, SiPostman, SiFirebase, SiRazorpay, SiTwilio
+  SiGit, SiGithub, SiGithubactions, SiDigitalocean, SiClaude, SiPostman, SiFirebase, SiRazorpay, SiTwilio
 } from "react-icons/si";
-import { FaLaptopCode } from "react-icons/fa";
+import { FaLaptopCode, FaCubes } from "react-icons/fa";
+import type { IconType } from "react-icons";
 import { TbApi } from "react-icons/tb";
 
-const skillIcons: Record<string, { icon: any, color: string }> = {
+const skillIcons: Record<string, { icon: IconType; color: string }> = {
   // Languages
   "JavaScript (ES6+)": { icon: SiJavascript, color: "#F7DF1E" },
   "TypeScript": { icon: SiTypescript, color: "#3178C6" },
@@ -27,6 +29,9 @@ const skillIcons: Record<string, { icon: any, color: string }> = {
   "Vite": { icon: SiVite, color: "#646CFF" },
   "Tailwind CSS": { icon: SiTailwindcss, color: "#06B6D4" },
   "Redux": { icon: SiRedux, color: "#764ABC" },
+  "Redux Toolkit": { icon: SiRedux, color: "#764ABC" },
+  "React Query": { icon: SiReactquery, color: "#FF4154" },
+  "Zustand": { icon: FaCubes, color: "#B4761C" },
   "Bootstrap": { icon: SiBootstrap, color: "#7952B3" },
   "React Router": { icon: SiReactrouter, color: "#CA4245" },
   "Axios": { icon: SiAxios, color: "#5A29E4" },
@@ -42,6 +47,9 @@ const skillIcons: Record<string, { icon: any, color: string }> = {
   // Tools
   "Git": { icon: SiGit, color: "#F05032" },
   "GitHub": { icon: SiGithub, color: "#FFFFFF" },
+  "GitHub Actions": { icon: SiGithubactions, color: "#2088FF" },
+  "DigitalOcean": { icon: SiDigitalocean, color: "#0080FF" },
+  "Claude Code": { icon: SiClaude, color: "#D97757" },
   "Postman": { icon: SiPostman, color: "#FF6C37" },
   "Firebase": { icon: SiFirebase, color: "#FFCA28" },
   "Razorpay": { icon: SiRazorpay, color: "#008ECC" },
@@ -57,13 +65,13 @@ export function SkillsSection() {
         <SectionHeader title="Expertise." />
 
         <div className="space-y-24">
-          {categories.map(([category, skills], catIndex) => (
+          {categories.map(([category, skills]) => (
             <div key={category} className="space-y-8">
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: catIndex * 0.1 }}
+                variants={fadeInLeft}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT}
                 className="flex items-center gap-6"
               >
                 <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-[0.2em] whitespace-nowrap">
@@ -72,22 +80,23 @@ export function SkillsSection() {
                 <div className="h-px w-full bg-linear-to-r from-primary/20 to-transparent" />
               </motion.div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              <motion.div
+                variants={staggerContainer(0.03)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT}
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+              >
                 {skills.map((skill: string, i: number) => {
                   const data = skillIcons[skill] || { icon: null, color: "#6366f1" };
                   const Icon = data.icon;
 
                   return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: (catIndex * skills.length + i) * 0.02 }}
-                    >
+                    <motion.div key={i} variants={scaleIn}>
                       <GlassCard
                         variant="liquid"
-                        className="group/skill p-6 h-full flex flex-col items-center justify-center gap-4 border-white/5 hover:border-white/20 transition-all duration-300 isolate"
+                        interactive
+                        className="group/skill p-6 h-full flex flex-col items-center justify-center gap-4 border-white/5 hover:border-primary/30 hover:-translate-y-1 transition-all duration-500 isolate"
                       >
                         <div
                           className="relative z-10 w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover/skill:scale-110"
@@ -113,7 +122,7 @@ export function SkillsSection() {
                     </motion.div>
                   );
                 })}
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>

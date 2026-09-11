@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Magnetic } from "@/components/ui/MagneticButton";
+import { fadeUp, fadeInLeft, fadeInRight, staggerContainer, VIEWPORT } from "@/lib/motion";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { showToast } from "@/components/ui/Toast";
 
@@ -61,8 +62,9 @@ export function ContactSection() {
       } else {
         throw new Error(data.error || 'Something went wrong');
       }
-    } catch (err: any) {
-      showToast('error', err.message || "Failed to send message. Please try again.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to send message. Please try again.";
+      showToast('error', message);
     } finally {
       setLoading(false);
     }
@@ -70,43 +72,44 @@ export function ContactSection() {
 
   return (
     <SectionContainer id="contact">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.7 }}
-        className="max-w-7xl mx-auto"
-      >
+      <div className="max-w-7xl mx-auto">
         <SectionHeader title="Get in Touch." />
-        
-        <div className="flex flex-col md:flex-row gap-12 items-start">
-          <div className="flex-1">
-            <p className="text-neutral-400 leading-relaxed mb-8 max-w-md">
+
+        <motion.div
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          className="flex flex-col md:flex-row gap-12 items-start"
+        >
+          <motion.div variants={fadeInLeft} className="flex-1">
+            <p className="text-neutral-400 leading-relaxed mb-8 max-w-md text-[length:var(--text-fluid-lead)]">
               Whether you have a question, a project in mind, or just want to say hi, I will try my best to get back to you!
             </p>
-            <div className="space-y-6 text-neutral-300 text-sm mt-8">
-              <p className="flex items-center gap-4">
-                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover:bg-primary/10 transition-colors">
+            <motion.div variants={staggerContainer(0.08)} className="space-y-6 text-neutral-300 text-sm mt-8">
+              <motion.p variants={fadeUp} className="flex items-center gap-4 group/row">
+                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover/row:bg-primary/10 group-hover/row:border-primary/30 transition-colors duration-300">
                   <FaEnvelope className="text-base" />
                 </span>
                 <span className="text-base text-neutral-300">pmksinan@gmail.com</span>
-              </p>
-              <p className="flex items-center gap-4">
-                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover:bg-primary/10 transition-colors">
+              </motion.p>
+              <motion.p variants={fadeUp} className="flex items-center gap-4 group/row">
+                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover/row:bg-primary/10 group-hover/row:border-primary/30 transition-colors duration-300">
                   <FaPhone className="text-base" />
                 </span>
                 <span className="text-base text-neutral-300">+91 7736689774</span>
-              </p>
-              <p className="flex items-center gap-4">
-                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover:bg-primary/10 transition-colors">
+              </motion.p>
+              <motion.p variants={fadeUp} className="flex items-center gap-4 group/row">
+                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover/row:bg-primary/10 group-hover/row:border-primary/30 transition-colors duration-300">
                   <FaMapMarkerAlt className="text-base" />
                 </span>
                 <span className="text-base text-neutral-300">Kozhikode, Kerala</span>
-              </p>
-            </div>
-          </div>
-          
-          <GlassCard variant="liquid" className="flex-1 p-8 md:p-10 w-full backdrop-blur-3xl shadow-primary/5">
+              </motion.p>
+            </motion.div>
+          </motion.div>
+
+          <motion.div variants={fadeInRight} className="flex-1 w-full">
+          <GlassCard variant="liquid" interactive className="p-8 md:p-10 w-full backdrop-blur-3xl shadow-primary/5">
             <form className="flex flex-col gap-6 relative z-10" onSubmit={handleSubmit} noValidate>
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm font-bold uppercase tracking-widest text-neutral-200">Name</label>
@@ -142,18 +145,21 @@ export function ContactSection() {
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                size="lg" 
-                disabled={loading}
-                  className="rounded-none uppercase tracking-widest text-xs font-bold"
-              >
-                {loading ? "Sending..." : "Send Message"}
-              </Button>
+              <Magnetic strength={0.18} className="w-full">
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={loading}
+                  className="w-full rounded-none uppercase tracking-widest text-xs font-bold"
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                </Button>
+              </Magnetic>
             </form>
           </GlassCard>
-        </div>
-      </motion.div>
+          </motion.div>
+        </motion.div>
+      </div>
     </SectionContainer>
   );
 }

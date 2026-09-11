@@ -4,84 +4,77 @@ import { motion } from "framer-motion";
 import { PORTFOLIO_DATA } from "@/constants/data";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { fadeInLeft, fadeInRight, staggerContainer, VIEWPORT_TALL, DUR, EASE } from "@/lib/motion";
 import { FaCalendarAlt } from "react-icons/fa";
 
 export function EducationSection() {
-  if (!PORTFOLIO_DATA.education || PORTFOLIO_DATA.education.length === 0) return null;
+  const education = PORTFOLIO_DATA.education;
+  if (!education || education.length === 0) return null;
 
   return (
     <SectionContainer id="education">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.7 }}
-        className="max-w-7xl mx-auto"
-      >
+      <div className="max-w-7xl mx-auto">
         <SectionHeader title="Education." />
-        
-        <div className="relative">
-          {/* Central Line */}
-          <div className="absolute left-6 sm:left-1/2 transform sm:-translate-x-1/2 top-0 bottom-0 w-px bg-primary/40"></div>
-          
-          <div className="flex flex-col gap-12 sm:gap-0">
-            {PORTFOLIO_DATA.education.map((edu, index) => {
-              const isOnLeft = index % 2 === 0;
-              return (
-                <div key={index} className="relative flex items-center justify-between w-full sm:mb-20 flex-col sm:flex-row">
-                  
-                  {/* Timeline Dot (Desktop & Mobile) */}
-                  <div 
-                    className="absolute left-6 sm:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-0 z-10" 
-                    style={{ top: '6px' }}
-                  ></div>
-                  
-                  {/* Left Box (Even indexes) */}
-                  <div className={`w-full sm:w-[calc(50%-3rem)] ${isOnLeft ? 'sm:text-left sm:flex sm:justify-end' : 'sm:opacity-0 sm:invisible'} pl-16 sm:pl-0 order-2 sm:order-1`}>
-                    {isOnLeft && (
-                      <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="sm:w-80 text-left"
-                      >
-                        <h3 className="text-xl font-bold text-white mb-2">{edu.degree}</h3>
-                        <p className="text-neutral-400 text-base mb-4 leading-relaxed">{edu.institution}</p>
-                        <div className="flex items-center gap-2 text-sm text-neutral-400 font-medium justify-start">
-                          <FaCalendarAlt className="w-4 h-4" />
-                          <span>{edu.period}</span>
-                        </div>
-                      </motion.div>
-                    )}
-                  </div>
-                  
-                  {/* Right Box (Odd indexes) */}
-                  <div className={`w-full sm:w-[calc(50%-3rem)] ${!isOnLeft ? 'sm:text-left' : 'sm:opacity-0 sm:invisible'} pl-16 sm:pl-0 order-3 sm:order-2`}>
-                    {!isOnLeft && (
-                      <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="sm:w-80 text-left"
-                      >
-                        <h3 className="text-xl font-bold text-white mb-2">{edu.degree}</h3>
-                        <p className="text-neutral-400 text-base mb-4 leading-relaxed">{edu.institution}</p>
-                        <div className="flex items-center gap-2 text-sm text-neutral-400 font-medium justify-start">
-                          <FaCalendarAlt className="w-4 h-4" />
-                          <span>{edu.period}</span>
-                        </div>
-                      </motion.div>
-                    )}
-                  </div>
 
+        <motion.div
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_TALL}
+          className="relative"
+        >
+          {/* Central line — draws downward as the section enters. */}
+          <motion.div
+            variants={{
+              hidden: { scaleY: 0 },
+              visible: { scaleY: 1, transition: { duration: DUR.slower, ease: EASE.out } },
+            }}
+            className="absolute left-6 sm:left-1/2 sm:-translate-x-1/2 top-0 bottom-0 w-px origin-top bg-linear-to-b from-primary/50 via-primary/25 to-transparent"
+          />
+
+          <div className="flex flex-col gap-12 sm:gap-0">
+            {education.map((edu, index) => {
+              const isOnLeft = index % 2 === 0;
+
+              return (
+                <div
+                  key={index}
+                  className="relative flex w-full flex-col items-start sm:mb-20 sm:flex-row sm:items-center sm:justify-between"
+                >
+                  {/* Timeline dot */}
+                  <motion.span
+                    variants={{
+                      hidden: { scale: 0, opacity: 0 },
+                      visible: { scale: 1, opacity: 1, transition: { duration: DUR.fast, ease: EASE.out } },
+                    }}
+                    className="absolute left-6 top-[6px] z-10 h-4 w-4 -translate-x-1/2 rounded-full bg-primary shadow-[0_0_16px_var(--primary-glow)] sm:left-1/2"
+                  />
+
+                  {/*
+                   * One card, placed into the left or right half by order + margin.
+                   * (Previously this markup was duplicated and one copy hidden.)
+                   */}
+                  <motion.div
+                    variants={isOnLeft ? fadeInLeft : fadeInRight}
+                    className={`w-full pl-16 text-left sm:w-[calc(50%-3rem)] sm:pl-0 ${isOnLeft ? "sm:mr-auto sm:text-right" : "sm:ml-auto"
+                      }`}
+                  >
+                    <h3 className="mb-2 text-xl font-bold text-white">{edu.degree}</h3>
+                    <p className="mb-4 text-base leading-relaxed text-neutral-400">{edu.institution}</p>
+                    <div
+                      className={`flex items-center gap-2 text-sm font-medium text-neutral-400 ${isOnLeft ? "justify-start sm:justify-end" : "justify-start"
+                        }`}
+                    >
+                      <FaCalendarAlt className="h-4 w-4 text-primary/70" />
+                      <span className="font-mono">{edu.period}</span>
+                    </div>
+                  </motion.div>
                 </div>
               );
             })}
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </SectionContainer>
   );
 }

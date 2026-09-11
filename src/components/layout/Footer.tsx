@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaArrowUp } from "react-icons/fa";
 import { PORTFOLIO_DATA } from "@/constants/data";
+import { Magnetic } from "@/components/ui/MagneticButton";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -38,16 +39,17 @@ export function Footer() {
                   social.icon === 'FaWhatsapp' ? FaWhatsapp : FaLinkedin;
 
               return (
+                <Magnetic key={social.name} strength={0.4}>
                 <Link
-                  key={social.name}
                   href={social.url}
                   target={social.name === 'WhatsApp' ? undefined : "_blank"}
                   rel={social.name === 'WhatsApp' ? undefined : "noopener noreferrer"}
-                  className={`p-3 rounded-full bg-white/5 border border-white/5 text-neutral-400 transition-all duration-300 group ${social.hoverText} ${social.hoverBg} ${social.hoverBorder}`}
+                  className={`flex p-3 rounded-full bg-white/5 border border-white/5 text-neutral-400 transition-all duration-300 group ${social.hoverText} ${social.hoverBg} ${social.hoverBorder}`}
                   aria-label={social.name}
                 >
                   <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </Link>
+                </Magnetic>
               );
             })}
           </div>
