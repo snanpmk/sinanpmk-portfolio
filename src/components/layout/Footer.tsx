@@ -16,7 +16,7 @@ export function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-indigo/60 to-transparent" />
 
       {/* Background with blur and subtle gradient */}
-      <div className="absolute inset-0 bg-onyx/70 backdrop-blur-xl -z-10" />
+      <div className="absolute inset-0 bg-onyx -z-10" />
 
       <div className="container mx-auto px-6 md:px-12 max-w-6xl py-12 md:py-16">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">

@@ -156,7 +156,7 @@ export function HeroSection() {
 
               <motion.div
                 variants={fadeUp}
-                className="rounded-3xl border border-indigo/30 bg-surface/70 backdrop-blur-sm p-6 md:p-7 min-h-[150px] flex flex-col justify-between"
+                className="rounded-3xl border border-indigo/30 bg-surface p-6 md:p-7 min-h-[150px] flex flex-col justify-between"
               >
                 <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-indigo-soft">Focus</span>
                 <div className="font-display text-lg md:text-xl font-semibold text-white leading-tight">
