@@ -88,19 +88,19 @@ export function ContactSection() {
             </p>
             <motion.div variants={staggerContainer(0.08)} className="space-y-6 text-neutral-300 text-sm mt-8">
               <motion.p variants={fadeUp} className="flex items-center gap-4 group/row">
-                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover/row:bg-primary/10 group-hover/row:border-primary/30 transition-colors duration-300">
+                <span className="w-10 h-10 rounded-full bg-indigo/10 flex items-center justify-center border border-indigo/30 text-indigo-soft group-hover/row:bg-mint/10 group-hover/row:border-mint/40 group-hover/row:text-mint transition-colors duration-300">
                   <FaEnvelope className="text-base" />
                 </span>
                 <span className="text-base text-neutral-300">pmksinan@gmail.com</span>
               </motion.p>
               <motion.p variants={fadeUp} className="flex items-center gap-4 group/row">
-                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover/row:bg-primary/10 group-hover/row:border-primary/30 transition-colors duration-300">
+                <span className="w-10 h-10 rounded-full bg-indigo/10 flex items-center justify-center border border-indigo/30 text-indigo-soft group-hover/row:bg-mint/10 group-hover/row:border-mint/40 group-hover/row:text-mint transition-colors duration-300">
                   <FaPhone className="text-base" />
                 </span>
                 <span className="text-base text-neutral-300">+91 7736689774</span>
               </motion.p>
               <motion.p variants={fadeUp} className="flex items-center gap-4 group/row">
-                <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-primary/80 group-hover/row:bg-primary/10 group-hover/row:border-primary/30 transition-colors duration-300">
+                <span className="w-10 h-10 rounded-full bg-indigo/10 flex items-center justify-center border border-indigo/30 text-indigo-soft group-hover/row:bg-mint/10 group-hover/row:border-mint/40 group-hover/row:text-mint transition-colors duration-300">
                   <FaMapMarkerAlt className="text-base" />
                 </span>
                 <span className="text-base text-neutral-300">Kozhikode, Kerala</span>
@@ -109,7 +109,7 @@ export function ContactSection() {
           </motion.div>
 
           <motion.div variants={fadeInRight} className="flex-1 w-full">
-          <GlassCard variant="liquid" interactive className="p-8 md:p-10 w-full backdrop-blur-3xl shadow-primary/5">
+          <GlassCard variant="liquid" interactive className="p-8 md:p-10 w-full backdrop-blur-3xl ">
             <form className="flex flex-col gap-6 relative z-10" onSubmit={handleSubmit} noValidate>
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm font-bold uppercase tracking-widest text-neutral-200">Name</label>
@@ -118,7 +118,7 @@ export function ContactSection() {
                   id="name" 
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans placeholder:text-neutral-600"
+                  className="bg-onyx/60 border border-indigo/25 rounded-xl px-4 py-4 text-white hover:border-indigo/50 focus:border-indigo focus:outline-none focus:ring-2 focus:ring-indigo/40 transition-all font-sans placeholder:text-neutral-600"
                   placeholder="Your Name"
                 />
               </div>
@@ -129,7 +129,7 @@ export function ContactSection() {
                   id="email" 
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans placeholder:text-neutral-600"
+                  className="bg-onyx/60 border border-indigo/25 rounded-xl px-4 py-4 text-white hover:border-indigo/50 focus:border-indigo focus:outline-none focus:ring-2 focus:ring-indigo/40 transition-all font-sans placeholder:text-neutral-600"
                   placeholder="yourname@gmail.com"
                 />
               </div>
@@ -140,7 +140,7 @@ export function ContactSection() {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none font-sans placeholder:text-neutral-600"
+                  className="bg-onyx/60 border border-indigo/25 rounded-xl px-4 py-4 text-white hover:border-indigo/50 focus:border-indigo focus:outline-none focus:ring-2 focus:ring-indigo/40 transition-all resize-none font-sans placeholder:text-neutral-600"
                   placeholder="What's on your mind?"
                 />
               </div>
@@ -150,7 +150,7 @@ export function ContactSection() {
                   type="submit"
                   size="lg"
                   disabled={loading}
-                  className="w-full rounded-none uppercase tracking-widest text-xs font-bold"
+                  className="w-full rounded-full uppercase tracking-widest text-xs font-bold"
                 >
                   {loading ? "Sending..." : "Send Message"}
                 </Button>

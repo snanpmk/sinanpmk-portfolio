@@ -3,97 +3,110 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { PORTFOLIO_DATA } from "@/constants/data";
-import { FaDownload, FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { FaDownload, FaLinkedin, FaGithub, FaWhatsapp, FaArrowRight } from "react-icons/fa";
 import { Button } from "@/components/ui/Button";
-import { BlurImage } from "@/components/ui/BlurImage";
 import { RevealText } from "@/components/ui/RevealText";
 import { Magnetic } from "@/components/ui/MagneticButton";
 import { fadeUp, staggerContainer, EASE, DUR } from "@/lib/motion";
 
+const socialIcon = (icon: string) =>
+  icon === "FaGithub" ? FaGithub : icon === "FaWhatsapp" ? FaWhatsapp : FaLinkedin;
+
+/** Skills shown in the scrolling strip under the hero. */
+const MARQUEE = [
+  ...PORTFOLIO_DATA.skills.frontend.slice(0, 6),
+  "Frontend architecture",
+  "AI integration",
+  "Real-time UIs",
+  "TypeScript",
+];
+
 export function HeroSection() {
-  const { name, title, microProof, image } = PORTFOLIO_DATA.hero;
+  const { title, location, microProof } = PORTFOLIO_DATA.hero;
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  // Parallax: larger travel distance makes the layered depth effect clearly visible on desktop
-  const y1 = useTransform(scrollYProgress, [0, 1], ["0%", "-35%"]);
-  const y2 = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
-  const scale2 = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
+  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
+  const yTiles = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
 
   return (
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-32 pb-32 md:pt-40 md:pb-40 px-6 md:px-12 overflow-hidden noise-overlay"
+      className="relative w-full min-h-screen flex flex-col justify-between pt-32 md:pt-40 overflow-hidden noise-overlay"
     >
-      {/* Decorative editorial background text — pushed down so it doesn't overlap headline */}
-      <div className="select-none-deco hidden lg:block absolute bottom-[10%] right-[2%] text-[8vw] font-serif italic text-white/2.5 pointer-events-none tracking-tighter">
-        React &amp; Next js
-      </div>
-
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="flex flex-col lg:flex-row items-center lg:items-end gap-16 lg:gap-8">
-
-          {/* Main Text Content */}
-          <motion.div
-            className="flex-1 z-20 w-full text-center lg:text-left"
-            style={{ y: y1 }}
-            variants={staggerContainer(0.12, 0.15)}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div variants={fadeUp} className="flex items-center gap-4 mb-5 justify-center lg:justify-start">
-              <span className="w-8 h-px bg-primary/40" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-neutral-500">
-                {title}
+      <div className="container mx-auto max-w-7xl px-6 md:px-12 relative z-10 flex-1 flex flex-col justify-center">
+        <motion.div
+          style={{ y: yText }}
+          variants={staggerContainer(0.12, 0.15)}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Status line */}
+          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mb-8 md:mb-10">
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-mint/25 bg-mint/[0.06] px-3.5 py-1.5">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-mint animate-ping-soft" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-mint" />
               </span>
-            </motion.div>
+              <span className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.2em] text-mint">
+                Open to new roles
+              </span>
+            </span>
+            <span className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.25em] text-indigo-soft/80">
+              {title} — {location}
+            </span>
+          </motion.div>
 
-            <h1 className="editorial-heading text-[length:var(--text-fluid-display)] mb-8">
-              <RevealText inheritVariants>Crafting scalable</RevealText>
-              <RevealText inheritVariants>
-                <span className="italic font-serif relative inline-block">
-                  React applications.
-                  <motion.svg
-                    width="100%" height="15" viewBox="0 0 300 20" fill="none"
-                    className="absolute -bottom-2 left-0 w-full overflow-visible"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{ duration: 1.4, delay: 1.1, ease: EASE.inOut }}
-                  >
-                    <motion.path
-                      d="M5 15C50 5 250 5 295 15"
-                      stroke="var(--primary)"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      opacity="0.35"
-                    />
-                  </motion.svg>
-                </span>
-              </RevealText>
-            </h1>
+          {/* Headline */}
+          <h1 className="editorial-heading text-[length:var(--text-fluid-display)] text-white mb-12 md:mb-16">
+            <RevealText inheritVariants>Crafting scalable</RevealText>
+            <RevealText inheritVariants>
+              React{" "}
+              <span className="font-serif italic font-normal tracking-[-0.02em] text-mint relative inline-block pr-2">
+                applications.
+                <motion.svg
+                  width="100%" height="15" viewBox="0 0 300 20" fill="none" preserveAspectRatio="none"
+                  className="absolute -bottom-1 md:-bottom-2 left-0 w-full overflow-visible"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.4, delay: 1.1, ease: EASE.inOut }}
+                >
+                  <motion.path
+                    d="M5 15C50 5 250 5 295 15"
+                    stroke="var(--indigo)"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                </motion.svg>
+              </span>
+            </RevealText>
+          </h1>
 
-            <div className="max-w-xl mx-auto lg:mx-0 space-y-8">
-              <motion.p variants={fadeUp} className="text-[length:var(--text-fluid-lead)] text-neutral-300 leading-relaxed">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-end">
+            {/* Intro + actions */}
+            <div className="lg:col-span-6 space-y-8">
+              <motion.p variants={fadeUp} className="text-[length:var(--text-fluid-lead)] text-neutral-300 leading-relaxed max-w-xl">
                 I&apos;m <span className="text-white font-medium">Sinan PMK</span>, a{" "}
-                <span className="text-white font-medium">React &amp; Next.js Developer</span>{" "}
-                with <span className="text-white font-medium">2+ years of experience</span>{" "}
-                building production-grade fintech, healthcare and SaaS applications.
+                <span className="text-white font-medium">frontend engineer</span> with{" "}
+                <span className="text-white font-medium">3 years</span> designing large-scale
+                healthcare and fintech systems in React and Next.js — and integrating{" "}
+                <span className="text-mint">AI</span> into the products I ship and the way I build them.
               </motion.p>
 
-              <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
                 <Magnetic strength={0.25}>
                   <Button
                     variant="primary"
                     size="lg"
-                    onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="rounded-none uppercase tracking-widest text-xs font-bold"
+                    onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                    className="rounded-full uppercase tracking-widest text-xs font-bold gap-3 group"
                   >
                     Explore Work
+                    <FaArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </Magnetic>
 
@@ -101,19 +114,17 @@ export function HeroSection() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="rounded-none uppercase tracking-widest text-xs font-bold gap-2"
-                    onClick={() => window.open('/resume.pdf', '_blank')}
+                    className="rounded-full uppercase tracking-widest text-xs font-bold gap-2"
+                    onClick={() => window.open("/resume.pdf", "_blank")}
                   >
-                    <FaDownload className="w-3.5 h-3.5 text-primary" />
+                    <FaDownload className="w-3.5 h-3.5 text-indigo-soft" />
                     Resume
                   </Button>
                 </Magnetic>
 
-                <div className="flex items-center gap-3 ml-2">
+                <div className="flex items-center gap-2 sm:ml-2">
                   {PORTFOLIO_DATA.socialLinks?.map((social) => {
-                    const Icon = social.icon === 'FaLinkedin' ? FaLinkedin :
-                      social.icon === 'FaGithub' ? FaGithub :
-                        social.icon === 'FaWhatsapp' ? FaWhatsapp : FaLinkedin;
+                    const Icon = socialIcon(social.icon);
                     return (
                       <Magnetic key={social.name} strength={0.4}>
                         <a
@@ -121,9 +132,9 @@ export function HeroSection() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={social.name}
-                          className={`flex transition-all opacity-70 hover:opacity-100 p-2.5 border rounded-full ${social.color} ${social.borderColor} ${social.hoverBg} ${social.hoverBorder}`}
+                          className="flex p-3 rounded-full border border-indigo/30 text-neutral-300 hover:text-mint hover:border-mint/40 hover:bg-mint/5 transition-colors duration-300"
                         >
-                          <Icon size={18} />
+                          <Icon size={17} />
                         </a>
                       </Magnetic>
                     );
@@ -131,89 +142,77 @@ export function HeroSection() {
                 </div>
               </motion.div>
             </div>
-          </motion.div>
 
-          {/* Visual Piece — Editorial Frame */}
-          <div className="relative flex justify-center lg:justify-end w-full lg:w-auto">
+            {/* Proof tiles — indigo carries the weight, mint marks what's live */}
             <motion.div
-              style={{ y: y2, scale: scale2 }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 10 }}
-              transition={{ duration: DUR.slower, ease: EASE.out, delay: 0.2 }}
-              className="relative group"
+              style={{ y: yTiles }}
+              variants={staggerContainer(0.1, 0.5)}
+              className="lg:col-span-6 grid grid-cols-2 gap-3 md:gap-4"
             >
-              {/* Signature Frame */}
-              <div className="human-border p-3 md:p-4 bg-neutral-900 shadow-2xl skew-x-1 hover:skew-x-0 transition-transform duration-1000">
-                <div className="relative w-56 h-72 sm:w-72 sm:h-96 md:w-80 md:h-[420px] overflow-hidden">
-                  <BlurImage
-                    src={image}
-                    alt={name}
-                    fill
-                    priority
-                    sizes="(max-width: 640px) 224px, (max-width: 768px) 288px, 320px"
-                    className="object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-primary/10 mix-blend-overlay group-hover:bg-transparent transition-all duration-700" />
+              <motion.div
+                variants={fadeUp}
+                className="relative overflow-hidden rounded-3xl bg-indigo p-6 md:p-7 min-h-[150px] flex flex-col justify-between"
+              >
+                <div className="absolute -right-10 -top-10 w-36 h-36 rounded-full bg-white/10 blur-2xl" />
+                <span className="font-display text-5xl md:text-6xl font-bold tracking-tighter text-white leading-none">
+                  3<span className="text-mint text-2xl md:text-3xl align-top ml-1">yrs</span>
+                </span>
+                <span className="text-xs md:text-sm font-medium text-white/80 leading-snug">
+                  building large-scale React &amp; Next.js systems
+                </span>
+              </motion.div>
+
+              <motion.div
+                variants={fadeUp}
+                className="rounded-3xl border border-indigo/30 bg-surface/70 backdrop-blur-sm p-6 md:p-7 min-h-[150px] flex flex-col justify-between"
+              >
+                <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-indigo-soft">Focus</span>
+                <div className="font-display text-lg md:text-xl font-semibold text-white leading-tight">
+                  Healthcare<br />Fintech<br /><span className="text-mint">AI features</span>
                 </div>
+              </motion.div>
 
-                {/* Annotation */}
-                <div className="mt-3 pt-3 border-t border-white/5 font-mono text-[9px] text-neutral-600 flex justify-between items-center">
-                  <span className="text-primary/70 text-xs font-medium">Sinan Pmk</span>
-                  <span className="italic">React Developer</span>
+              <motion.div
+                variants={fadeUp}
+                className="col-span-2 rounded-3xl border border-mint/20 bg-linear-to-r from-mint/[0.07] to-transparent p-6 md:p-7 flex items-start gap-4"
+              >
+                <span className="mt-1.5 relative flex h-2.5 w-2.5 shrink-0">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-mint animate-ping-soft" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-mint" />
+                </span>
+                <div>
+                  <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-2">Now building</p>
+                  <p className="text-sm md:text-base text-neutral-200 leading-relaxed">{microProof}</p>
                 </div>
-              </div>
-
-              {/* Compositional offset circle */}
-              <div className="absolute -z-10 -top-8 -right-8 w-32 h-32 border border-primary/20 rounded-full" />
-            </motion.div>
-
-            {/* microProof sidebar — only on xl screens where there's room */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.5, duration: DUR.slow, ease: EASE.out }}
-              className="select-none-deco hidden 2xl:block absolute -right-56 top-1/2 -rotate-90 origin-center"
-            >
-              <span className="text-[10px] uppercase font-mono tracking-[0.4em] text-white/20 whitespace-nowrap">
-                {microProof}
-              </span>
+              </motion.div>
             </motion.div>
           </div>
-
-        </div>
+        </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Skills strip — a tilted indigo band */}
       <motion.div
-        style={{ opacity }}
-        className="select-none-deco absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: DUR.slow, ease: EASE.out }}
+        className="relative mt-20 md:mt-24 mb-10 -mx-4 -rotate-2 select-none-deco"
+        aria-hidden
       >
-        <motion.span
-          className="text-[9px] font-mono text-neutral-600 uppercase tracking-widest"
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: DUR.slow, ease: EASE.out }}
-        >
-          Scroll
-        </motion.span>
-
-        {/* Drip line */}
-        <div className="relative w-px h-10 overflow-hidden">
-          {/* Static track */}
-          <div className="absolute inset-0 bg-linear-to-b from-white/5 to-transparent" />
-          {/* Animated drip */}
-          <motion.div
-            className="absolute left-0 w-px bg-linear-to-b from-transparent via-primary to-transparent"
-            initial={{ top: "-100%", height: "100%" }}
-            animate={{ top: "100%" }}
-            transition={{
-              duration: 1.2,
-              ease: EASE.inOut,
-              repeat: Infinity,
-              repeatDelay: 0.6,
-              delay: 2.4,
-            }}
-          />
+        <div className="bg-indigo py-4 md:py-5 overflow-hidden shadow-[0_0_60px_rgba(99,49,251,0.45)]">
+          <div className="flex w-max animate-marquee">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center">
+                {MARQUEE.map((item) => (
+                  <span key={`${copy}-${item}`} className="flex items-center">
+                    <span className="font-display text-xl md:text-3xl font-semibold uppercase tracking-tight text-white whitespace-nowrap px-6 md:px-8">
+                      {item}
+                    </span>
+                    <span className="text-mint text-lg md:text-2xl">✦</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </section>

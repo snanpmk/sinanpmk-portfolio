@@ -40,14 +40,14 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
         "glass": variant === "default",
         "glass-panel": variant === "panel",
         "bg-white/5 border border-white/10": variant === "subtle",
-        "border border-white/15 shadow-2xl overflow-hidden group/liquid rim-light": isLiquid,
+        "border border-indigo/20 shadow-[0_24px_60px_-20px_rgba(1,1,13,0.9)] overflow-hidden group/liquid rim-light": isLiquid,
       },
       className
     );
 
     const liquidStyle = isLiquid
       ? {
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%)',
+        background: 'linear-gradient(150deg, rgba(99,49,251,0.10) 0%, rgba(7,6,28,0.85) 45%, rgba(1,1,13,0.9) 100%)',
         backdropFilter: 'blur(24px)',
       }
       : undefined;
@@ -57,10 +57,10 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
         {isLiquid && (
           <>
             {/* Liquid Glass Highlight (Rim Light) */}
-            <div className="absolute inset-0 -z-10 bg-linear-to-b from-white/15 to-transparent opacity-40 pointer-events-none" />
+            <div className="absolute inset-0 -z-10 bg-linear-to-b from-indigo/15 to-transparent opacity-50 pointer-events-none" />
 
             {/* Animated Shine Effect */}
-            <div className="absolute inset-0 -z-10 -translate-x-full group-hover/liquid:translate-x-full transition-transform duration-1200 ease-in-out bg-linear-to-r from-transparent via-white/10 to-transparent -skew-x-25 pointer-events-none" />
+            <div className="absolute inset-0 -z-10 -translate-x-full group-hover/liquid:translate-x-full transition-transform duration-1200 ease-in-out bg-linear-to-r from-transparent via-indigo/15 to-transparent -skew-x-25 pointer-events-none" />
           </>
         )}
 

@@ -6,7 +6,7 @@ import { SectionContainer } from "@/components/ui/SectionContainer";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeUp, scaleIn, staggerContainer, VIEWPORT } from "@/lib/motion";
-import { FaCheckCircle, FaRocket, FaCode, FaDraftingCompass, FaCube, FaUniversalAccess } from "react-icons/fa";
+import { FaCheckCircle, FaRocket, FaCode, FaDraftingCompass, FaCube, FaUniversalAccess, FaProjectDiagram, FaBolt, FaMagic } from "react-icons/fa";
 import type { IconType } from "react-icons";
 
 const principleIcons: Record<string, IconType> = {
@@ -17,6 +17,10 @@ const principleIcons: Record<string, IconType> = {
   "SSR / SSG": FaRocket,
   "Code Splitting": FaCube,
   "Clean State": FaCube,
+  "Frontend Architecture": FaDraftingCompass,
+  "System Design": FaProjectDiagram,
+  "AI Integration": FaMagic,
+  "Real-time UIs": FaBolt,
 };
 
 export function AboutSection() {
@@ -48,22 +52,23 @@ export function AboutSection() {
                 ))}
               </motion.div>
 
-              <motion.div variants={fadeUp} className="mt-8 pt-8 border-t border-white/5">
+              <motion.div variants={fadeUp} className="mt-8 pt-8 border-t border-indigo/20">
                 <div className="flex flex-wrap gap-x-8 gap-y-6 items-start">
                   <div className="flex-1 min-w-[200px]">
-                    <p className="text-white font-black text-xs uppercase tracking-widest mb-2 opacity-50">Looking For</p>
-                    <p className="text-white text-base font-bold">{about.lookingFor}</p>
+                    <p className="text-indigo-soft font-mono text-[11px] uppercase tracking-[0.2em] mb-2">Looking For</p>
+                    <p className="font-display text-white text-lg font-semibold">{about.lookingFor}</p>
                   </div>
 
                   <div className="flex-1 min-w-[250px]">
-                    <p className="text-white font-black text-xs uppercase tracking-widest mb-3 opacity-50">Core Strengths</p>
+                    <p className="text-indigo-soft font-mono text-[11px] uppercase tracking-[0.2em] mb-3">Core Strengths</p>
                     <div className="flex flex-wrap gap-2">
                       {about.principles.map((principle) => {
                         const Icon = principleIcons[principle] || FaCheckCircle;
+                        const isAI = principle.startsWith("AI");
                         return (
                           <div
                             key={principle}
-                            className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-primary/15 hover:bg-primary/20 hover:border-primary/40 transition-colors duration-300"
+                            className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-colors duration-300 ${isAI ? "bg-mint text-onyx border-mint" : "bg-indigo/10 text-indigo-soft border-indigo/30 hover:bg-indigo/25 hover:border-indigo/60"}`}
                           >
                             <Icon className="w-3 h-3" />
                             {principle}

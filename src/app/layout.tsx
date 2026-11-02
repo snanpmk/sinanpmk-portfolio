@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Instrument_Serif, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -27,12 +27,23 @@ const instrumentSerif = Instrument_Serif({
   preload: true,
 });
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-grotesk",
+  display: "swap",
+  preload: true,
+});
+
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",
   display: "swap",
   preload: true,
 });
+
+export const viewport: Viewport = {
+  themeColor: "#01010D",
+};
 
 export const metadata: Metadata = {
   // Required for Next to emit absolute og:image / twitter:image URLs.
@@ -60,9 +71,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} dark scroll-smooth overflow-x-hidden`}
+      className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} dark scroll-smooth overflow-x-hidden`}
     >
-      <body className="font-sans text-white antialiased selection:bg-primary/30 selection:text-white relative overflow-x-hidden">
+      <body className="font-sans text-white antialiased selection:bg-mint selection:text-onyx relative overflow-x-hidden">
         <MotionProvider>
           <ScrollProgress />
           <MouseSpotlight />

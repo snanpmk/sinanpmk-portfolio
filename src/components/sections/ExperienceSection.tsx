@@ -11,6 +11,7 @@ import type { IconType } from "react-icons";
 
 const roleIcons: Record<string, IconType> = {
   "Frontend Engineer": FaCode,
+  "Software Developer (Frontend)": FaCode,
   "Frontend Developer": FaCode,
   "Frontend Web Developer": FaBriefcase,
   "Tutor": FaChalkboardTeacher,
@@ -27,6 +28,7 @@ export function ExperienceSection() {
             const Icon = roleIcons[exp.role] || FaBriefcase;
             const isFirst = index === 0;
             const link = "link" in exp ? exp.link : undefined;
+            const note = "companyNote" in exp ? exp.companyNote : undefined;
 
             return (
               <motion.div
@@ -42,11 +44,11 @@ export function ExperienceSection() {
                   <div className="relative flex flex-row md:flex-col items-center md:items-start pt-4 md:pt-8 gap-4 md:gap-0">
                     <motion.span
                       variants={fadeUp}
-                      className="select-none-deco text-4xl md:text-5xl font-black text-white/10 group-hover:text-primary/25 transition-colors duration-500"
+                      className="select-none-deco font-display text-4xl md:text-6xl font-bold text-outline group-hover:[-webkit-text-stroke-color:var(--mint)] transition-all duration-500"
                     >
                       {String(index + 1).padStart(2, '0')}
                     </motion.span>
-                    <div className="h-px w-12 md:h-full md:w-px bg-white/5 md:ml-6 mt-0 md:mt-4 group-hover:bg-primary/30 transition-colors duration-500" />
+                    <div className="h-px w-12 md:h-full md:w-px bg-indigo/25 md:ml-6 mt-0 md:mt-4 group-hover:bg-indigo/60 transition-colors duration-500" />
                   </div>
 
                   {/* Main Content Slab */}
@@ -60,18 +62,18 @@ export function ExperienceSection() {
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                         <div>
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-primary transition-colors duration-500">
+                            <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-white">
                               {exp.role}
                             </h3>
                             {isFirst && (
-                              <span className="px-2 py-1 text-[9px] font-black bg-primary text-black rounded-sm tracking-widest">
+                              <span className="px-2.5 py-1 text-[9px] font-black bg-mint text-onyx rounded-full tracking-widest">
                                 CURRENT
                               </span>
                             )}
                           </div>
                           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-neutral-300 font-medium">
                             <span className="flex items-center gap-2">
-                              <Icon className="text-primary" />
+                              <Icon className="text-indigo-soft" />
                               {link ? (
                                 <a
                                   href={link}
@@ -89,6 +91,9 @@ export function ExperienceSection() {
                             <span className="w-1 h-1 rounded-full bg-neutral-700 hidden md:block" />
                             <span className="text-sm font-mono text-neutral-400">{exp.duration}</span>
                           </div>
+                          {note && (
+                            <p className="mt-2 text-xs font-mono uppercase tracking-[0.15em] text-indigo-soft/80">{note}</p>
+                          )}
                         </div>
 
                         <div className="text-right">
@@ -107,7 +112,7 @@ export function ExperienceSection() {
                         <ul className="space-y-4">
                           {exp.description.map((desc, i) => (
                             <motion.li variants={fadeUp} key={i} className="flex items-start gap-4">
-                              <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0 shadow-[0_0_8px_var(--primary)]" />
+                              <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-indigo shrink-0 shadow-[0_0_8px_var(--indigo)]" />
                               <p className="text-neutral-200 leading-relaxed text-[15px] font-normal">
                                 {desc}
                               </p>
@@ -122,7 +127,7 @@ export function ExperienceSection() {
                             {exp.techStack.map((tech, i) => (
                               <span
                                 key={i}
-                                className="px-3 py-1.5 text-[11px] font-mono font-bold text-primary bg-primary/10 rounded-lg border border-primary/20 hover:border-primary/50 hover:bg-primary/20 transition-all duration-300 cursor-default"
+                                className={`px-3 py-1.5 text-[11px] font-mono font-bold rounded-full border transition-all duration-300 cursor-default ${/AI|Gemini/.test(tech) ? "text-mint bg-mint/10 border-mint/30" : "text-indigo-soft bg-indigo/10 border-indigo/25 hover:border-indigo/60 hover:bg-indigo/20"}`}
                               >
                                 {tech}
                               </span>
@@ -132,7 +137,7 @@ export function ExperienceSection() {
                       </motion.div>
 
                       {/* Accent Corner Glow */}
-                      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/25 transition-all duration-700" />
+                      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo/15 rounded-full blur-3xl group-hover:bg-indigo/35 transition-all duration-700" />
                     </GlassCard>
                   </motion.div>
                 </div>

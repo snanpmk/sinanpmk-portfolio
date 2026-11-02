@@ -14,9 +14,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           "inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/20 disabled:pointer-events-none disabled:opacity-50",
           {
-            "bg-white text-black hover:bg-white/90 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]": variant === "primary",
-            "bg-white/10 text-white hover:bg-white/20": variant === "secondary",
-            "border border-white/10 bg-transparent hover:bg-white/5 text-white": variant === "outline",
+            "bg-mint text-onyx hover:bg-white shadow-[0_0_24px_rgba(136,249,192,0.25)] hover:shadow-[0_0_36px_rgba(136,249,192,0.45)]": variant === "primary",
+            "bg-indigo text-white hover:bg-indigo/85": variant === "secondary",
+            "border border-indigo/50 bg-indigo/5 hover:bg-indigo/20 hover:border-indigo text-white": variant === "outline",
             "hover:bg-white/10 text-neutral-300 hover:text-white": variant === "ghost",
             "glass hover:bg-white/10 text-white": variant === "glass",
             "text-neutral-400 hover:text-white underline-offset-4 hover:underline p-0! h-auto!": variant === "link",

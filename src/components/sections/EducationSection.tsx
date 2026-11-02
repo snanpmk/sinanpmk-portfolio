@@ -29,7 +29,7 @@ export function EducationSection() {
               hidden: { scaleY: 0 },
               visible: { scaleY: 1, transition: { duration: DUR.slower, ease: EASE.out } },
             }}
-            className="absolute left-6 sm:left-1/2 sm:-translate-x-1/2 top-0 bottom-0 w-px origin-top bg-linear-to-b from-primary/50 via-primary/25 to-transparent"
+            className="absolute left-6 sm:left-1/2 sm:-translate-x-1/2 top-0 bottom-0 w-px origin-top bg-linear-to-b from-indigo via-indigo/40 to-transparent"
           />
 
           <div className="flex flex-col gap-12 sm:gap-0">
@@ -47,7 +47,7 @@ export function EducationSection() {
                       hidden: { scale: 0, opacity: 0 },
                       visible: { scale: 1, opacity: 1, transition: { duration: DUR.fast, ease: EASE.out } },
                     }}
-                    className="absolute left-6 top-[6px] z-10 h-4 w-4 -translate-x-1/2 rounded-full bg-primary shadow-[0_0_16px_var(--primary-glow)] sm:left-1/2"
+                    className="absolute left-6 top-[6px] z-10 h-4 w-4 -translate-x-1/2 rounded-full bg-mint ring-4 ring-indigo/40 shadow-[0_0_16px_var(--primary-glow)] sm:left-1/2"
                   />
 
                   {/*
@@ -59,13 +59,13 @@ export function EducationSection() {
                     className={`w-full pl-16 text-left sm:w-[calc(50%-3rem)] sm:pl-0 ${isOnLeft ? "sm:mr-auto sm:text-right" : "sm:ml-auto"
                       }`}
                   >
-                    <h3 className="mb-2 text-xl font-bold text-white">{edu.degree}</h3>
+                    <h3 className="mb-2 font-display text-xl md:text-2xl font-bold text-white">{edu.degree}</h3>
                     <p className="mb-4 text-base leading-relaxed text-neutral-400">{edu.institution}</p>
                     <div
                       className={`flex items-center gap-2 text-sm font-medium text-neutral-400 ${isOnLeft ? "justify-start sm:justify-end" : "justify-start"
                         }`}
                     >
-                      <FaCalendarAlt className="h-4 w-4 text-primary/70" />
+                      <FaCalendarAlt className="h-4 w-4 text-indigo-soft" />
                       <span className="font-mono">{edu.period}</span>
                     </div>
                   </motion.div>

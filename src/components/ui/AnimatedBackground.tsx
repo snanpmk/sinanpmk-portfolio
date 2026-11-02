@@ -2,46 +2,50 @@
 
 import { motion } from 'framer-motion';
 
+/**
+ * Ambient light. Indigo carries the mood; a single faint mint bloom adds a
+ * hint of life without competing with the mint accents in the content.
+ */
 export function AnimatedBackground() {
   return (
-    <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-      {/* Heavy Blurred Blobs */}
+    <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-onyx">
+      {/* Indigo aurora — top left */}
       <motion.div
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.07, 0.11, 0.07],
-          x: [0, 50, 0],
-          y: [0, -50, 0],
+          scale: [1, 1.15, 1],
+          opacity: [0.35, 0.5, 0.35],
+          x: [0, 60, 0],
+          y: [0, -40, 0],
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="gpu absolute top-[-15%] left-[-15%] w-[50%] h-[50%] md:w-[60%] md:h-[60%] rounded-full bg-teal-500/6 md:bg-teal-500/10 blur-[60px] md:blur-[160px]"
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        className="gpu absolute top-[-25%] left-[-15%] w-[70%] h-[60%] rounded-full bg-indigo/40 blur-[90px] md:blur-[170px]"
       />
+      {/* Indigo — bottom right */}
       <motion.div
         animate={{
           scale: [1, 1.1, 1],
-          opacity: [0.06, 0.10, 0.06],
-          x: [0, -30, 0],
-          y: [0, 40, 0],
+          opacity: [0.25, 0.4, 0.25],
+          x: [0, -40, 0],
+          y: [0, 30, 0],
         }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="gpu absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] md:w-[60%] md:h-[60%] rounded-full bg-primary/6 md:bg-primary/10 blur-[60px] md:blur-[160px]"
+        transition={{ duration: 19, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="gpu absolute bottom-[-20%] right-[-15%] w-[60%] h-[55%] rounded-full bg-indigo/35 blur-[90px] md:blur-[170px]"
       />
-
-      {/* Hide this center-ish blob on mobile to keep it dark */}
+      {/* Mint — small and faint */}
       <motion.div
         animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.04, 0.07, 0.04],
+          scale: [1.1, 0.95, 1.1],
+          opacity: [0.06, 0.12, 0.06],
         }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="gpu md:block absolute bottom-[20%] left-[10%] w-[40%] h-[40%] rounded-full bg-cyan-800/6 blur-[160px]"
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        className="gpu hidden md:block absolute top-[35%] right-[12%] w-[22%] h-[28%] rounded-full bg-mint blur-[160px]"
       />
 
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(45,212,191,0.028)_1px,transparent_1px),linear-gradient(90deg,rgba(45,212,191,0.028)_1px,transparent_1px)] bg-size-[70px_70px] mask-[radial-gradient(ellipse_at_center,black_40%,transparent_100%)]"></div>
+      {/* Indigo grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(99,49,251,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(99,49,251,0.07)_1px,transparent_1px)] bg-size-[72px_72px] mask-[radial-gradient(ellipse_at_top,black_20%,transparent_75%)]" />
 
-      {/* Grain/Noise Overlay */}
-      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.035] mix-blend-overlay" />
+      {/* Grain */}
+      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.04] mix-blend-overlay" />
     </div>
   );
 }
