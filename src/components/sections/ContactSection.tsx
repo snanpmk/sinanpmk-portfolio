@@ -109,7 +109,7 @@ export function ContactSection() {
           </motion.div>
 
           <motion.div variants={fadeInRight} className="flex-1 w-full">
-          <GlassCard variant="liquid" interactive className="p-8 md:p-10 w-full backdrop-blur-3xl ">
+          <GlassCard variant="liquid" interactive className="p-8 md:p-10 w-full">
             <form className="flex flex-col gap-6 relative z-10" onSubmit={handleSubmit} noValidate>
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm font-bold uppercase tracking-widest text-neutral-200">Name</label>

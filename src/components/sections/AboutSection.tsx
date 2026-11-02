@@ -41,7 +41,7 @@ export function AboutSection() {
             <GlassCard
               variant="liquid"
               interactive
-              className="p-8 md:p-12 backdrop-blur-md text-left"
+              className="p-8 md:p-12 text-left"
             >
               <motion.div
                 variants={staggerContainer(0.1)}

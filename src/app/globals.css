@@ -113,18 +113,13 @@ body {
 /* Glassmorphism Utilities */
 @layer utilities {
   .glass {
-    background: var(--color-glass);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--surface);
     border: 1px solid var(--color-glass-border);
   }
 
   .glass-panel {
-    background: linear-gradient(145deg, rgb(var(--indigo-rgb) / 0.08) 0%, rgb(var(--indigo-rgb) / 0.02) 100%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    background: var(--surface);
+    border: 1px solid rgb(var(--indigo-rgb) / 0.25);
   }
 
   /*

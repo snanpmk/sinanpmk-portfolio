@@ -47,15 +47,7 @@ export function HeroSection() {
         >
           {/* Status line */}
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mb-8 md:mb-10">
-            <span className="inline-flex items-center gap-2.5 rounded-full border border-mint/25 bg-mint/[0.06] px-3.5 py-1.5">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-mint animate-ping-soft" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-mint" />
-              </span>
-              <span className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.2em] text-mint">
-                Open to new roles
-              </span>
-            </span>
+            <span className="w-8 h-px bg-indigo" />
             <span className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.25em] text-indigo-soft/80">
               {title} — {location}
             </span>
@@ -164,7 +156,7 @@ export function HeroSection() {
 
               <motion.div
                 variants={fadeUp}
-                className="rounded-3xl border border-indigo/30 bg-surface/70 backdrop-blur-sm p-6 md:p-7 min-h-[150px] flex flex-col justify-between"
+                className="rounded-3xl border border-indigo/30 bg-surface p-6 md:p-7 min-h-[150px] flex flex-col justify-between"
               >
                 <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-indigo-soft">Focus</span>
                 <div className="font-display text-lg md:text-xl font-semibold text-white leading-tight">
