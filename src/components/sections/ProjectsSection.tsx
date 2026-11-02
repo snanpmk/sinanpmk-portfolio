@@ -34,14 +34,14 @@ export function ProjectsSection() {
                 {/* Background Large Index */}
                 <motion.span
                   variants={fadeUp}
-                  className={`select-none-deco absolute -top-14 md:-top-20 ${isEven ? '-left-2 md:-left-6' : '-right-2 md:-right-6'} text-[7rem] md:text-[12rem] lg:text-[14rem] font-black text-white/6 pointer-events-none tracking-tighter leading-none`}
+                  className={`select-none-deco absolute -top-14 md:-top-20 ${isEven ? '-left-2 md:-left-6' : '-right-2 md:-right-6'} font-display text-[7rem] md:text-[12rem] lg:text-[14rem] font-bold text-outline pointer-events-none tracking-tighter leading-none`}
                 >
                   {(index + 1).toString().padStart(2, '0')}
                 </motion.span>
 
                 {/* Project Image Container */}
                 <motion.div variants={scaleIn} className="w-full md:w-[62%] relative">
-                  <div className="relative overflow-hidden rounded-3xl aspect-video border border-white/10 shadow-2xl bg-neutral-900 group-hover:border-primary/25 transition-colors duration-700">
+                  <div className="relative overflow-hidden rounded-3xl aspect-video border border-indigo/25 shadow-[0_30px_80px_-30px_rgba(99,49,251,0.6)] bg-surface group-hover:border-indigo/60 transition-colors duration-700">
                     <BlurImage
                       src={project.image}
                       alt={project.title}
@@ -50,7 +50,7 @@ export function ProjectsSection() {
                       className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.04]"
                     />
                     {/* Image Overlay Gradient */}
-                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-t from-onyx/90 via-indigo/10 to-transparent opacity-70 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none" />
                   </div>
                 </motion.div>
 
@@ -62,16 +62,16 @@ export function ProjectsSection() {
                   <GlassCard
                     variant="liquid"
                     tilt
-                    className="p-6 md:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-primary/10 hover:border-primary/30 transition-colors duration-700"
+                    className="p-6 md:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-indigo/50 transition-colors duration-700"
                   >
                     <div className="space-y-6">
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
-                          <p className="text-primary font-mono text-xs mb-3 font-bold uppercase tracking-[0.2em]">{project.company}</p>
-                          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter leading-none mb-2">
+                          <p className="text-indigo-soft font-mono text-xs mb-3 font-bold uppercase tracking-[0.2em]">{project.company}</p>
+                          <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-[-0.04em] leading-none mb-3">
                             {project.title}
                           </h3>
-                          <p className="text-primary/80 font-mono text-xs md:text-sm font-bold tracking-tight mb-4">{project.tagline}</p>
+                          <p className="text-mint font-mono text-xs md:text-sm font-bold tracking-tight mb-4">{project.tagline}</p>
                         </div>
                       </div>
 
@@ -86,7 +86,7 @@ export function ProjectsSection() {
                           {project.techStack.map((tech: string, i: number) => (
                             <span
                               key={i}
-                              className="px-3 py-1.5 text-[11px] font-mono font-bold text-primary bg-primary/10 rounded-lg border border-primary/20 hover:border-primary/50 hover:bg-primary/20 transition-all duration-300 cursor-default"
+                              className={`px-3 py-1.5 text-[11px] font-mono font-bold rounded-full border transition-all duration-300 cursor-default ${/AI|Gemini/.test(tech) ? "text-mint bg-mint/10 border-mint/30" : "text-indigo-soft bg-indigo/10 border-indigo/25 hover:border-indigo/60 hover:bg-indigo/20"}`}
                             >
                               {tech}
                             </span>
@@ -100,7 +100,7 @@ export function ProjectsSection() {
                             {isConfidential || link === "#" ? (
                               <button
                                 disabled
-                                className="w-full sm:w-auto px-10 py-4 bg-white/5 text-neutral-500 font-black uppercase tracking-widest text-[11px] rounded-xl flex items-center justify-center gap-2 cursor-not-allowed border border-white/5 opacity-60"
+                                className="w-full sm:w-auto px-10 py-4 bg-indigo/10 text-indigo-soft/70 font-black uppercase tracking-widest text-[11px] rounded-full flex items-center justify-center gap-2 cursor-not-allowed border border-indigo/20"
                               >
                                 NDA Protected
                                 <FaLock className="w-3 h-3" />
@@ -108,7 +108,7 @@ export function ProjectsSection() {
                             ) : (
                               <Magnetic strength={0.2}>
                                 <a href={link} target="_blank" rel="noreferrer" className="block w-full sm:w-auto">
-                                  <button className="w-full sm:w-auto px-10 py-4 bg-primary hover:bg-primary/90 text-black font-black uppercase tracking-widest text-[11px] transition-all flex items-center justify-center gap-2 rounded-xl group/btn shadow-[0_0_25px_var(--primary-glow)]">
+                                  <button className="w-full sm:w-auto px-10 py-4 bg-mint hover:bg-white text-onyx font-black uppercase tracking-widest text-[11px] transition-all flex items-center justify-center gap-2 rounded-full group/btn shadow-[0_0_25px_var(--primary-glow)]">
                                     Live Demo
                                     <FaExternalLinkAlt className="w-3 h-3 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                                   </button>
@@ -121,7 +121,7 @@ export function ProjectsSection() {
 
                       {/* Interaction hint */}
                       <div className="hidden md:flex items-center gap-2 text-neutral-500 text-[10px] uppercase tracking-widest font-black mt-4">
-                        <div className="h-px w-8 bg-neutral-800" />
+                        <div className="h-px w-8 bg-indigo/40" />
                         <span>Case Study Overview</span>
                       </div>
                     </div>

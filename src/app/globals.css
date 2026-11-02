@@ -1,30 +1,37 @@
 @import "tailwindcss";
 
+/*
+ * Palette
+ *   Onyx Black      #01010D  — the canvas
+ *   Electric Indigo #6331FB  — mood: light, surfaces, structure
+ *   Tropical Mint   #88F9C0  — personality: used sparingly, for the things that should feel alive
+ */
 :root {
-  --background: #000000;
-  /* Slightly warmer black */
-  --foreground: #fcfcfc;
-  /* Off-white for less 'digital' feel */
-  --primary: #2dd4bf;
-  /* Teal — bright and clean on near-black */
-  --primary-rgb: 45 212 191;
-  --primary-glow: rgb(var(--primary-rgb) / 0.16);
+  --background: #01010D;
+  --foreground: #F4F3FF;
+
+  --onyx: #01010D;
+  --surface: #07061C;
+
+  --indigo: #6331FB;
+  --indigo-rgb: 99 49 251;
+  /* Lifted indigo for text — raw #6331FB is too dark to read on onyx. */
+  --indigo-soft: #A891FF;
+
+  --mint: #88F9C0;
+  --mint-rgb: 136 249 192;
+
+  /* `primary` = personality colour. Existing components use it for accents. */
+  --primary: var(--mint);
+  --primary-rgb: var(--mint-rgb);
+  --primary-glow: rgb(var(--mint-rgb) / 0.22);
   --accent: #d4d4d8;
-  --accent-glow: none;
 
-  /* Single source of truth for every ambient accent light on the page. */
-  --glow-cursor: rgb(var(--primary-rgb) / 0.11);
-  --glow-card: rgb(var(--primary-rgb) / 0.20);
-}
+  /* Ambient light is indigo — it sets the mood, mint never floods. */
+  --glow-cursor: rgb(var(--indigo-rgb) / 0.16);
+  --glow-card: rgb(var(--indigo-rgb) / 0.30);
 
-:root {
-  --accent-glow: radial-gradient(circle at 50% -20%, rgb(var(--primary-rgb) / 0.05), transparent 60%);
-}
-
-@media (min-width: 768px) {
-  :root {
-    --accent-glow: radial-gradient(circle at 50% -20%, rgb(var(--primary-rgb) / 0.08), transparent 70%);
-  }
+  --accent-glow: radial-gradient(ellipse 80% 50% at 50% -10%, rgb(var(--indigo-rgb) / 0.22), transparent 70%);
 }
 
 @theme inline {
@@ -33,14 +40,20 @@
 
   /* These must point at the variables layout.tsx actually defines. */
   --font-sans: var(--font-inter);
+  --font-display: var(--font-grotesk);
   --font-mono: var(--font-jetbrains);
   --font-serif: var(--font-instrument);
 
-  --color-glass: rgba(255, 255, 255, 0.015);
-  --color-glass-border: rgba(255, 255, 255, 0.05);
+  --color-glass: rgb(99 49 251 / 0.04);
+  --color-glass-border: rgb(99 49 251 / 0.18);
 
   --color-primary: var(--primary);
   --color-primary-glow: var(--primary-glow);
+  --color-mint: var(--mint);
+  --color-indigo: var(--indigo);
+  --color-indigo-soft: var(--indigo-soft);
+  --color-onyx: var(--onyx);
+  --color-surface: var(--surface);
 
   /* Fluid type scale — smooth across viewports instead of stepping at breakpoints. */
   --text-fluid-display: clamp(2.75rem, 1.2rem + 7.6vw, 9rem);
@@ -59,14 +72,14 @@ body {
 }
 
 ::selection {
-  background: rgb(var(--primary-rgb) / 0.35);
-  color: #fff;
+  background: var(--mint);
+  color: var(--onyx);
 }
 
 /* Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(var(--primary-rgb) / 0.35) transparent;
+  scrollbar-color: rgb(var(--indigo-rgb) / 0.6) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -79,14 +92,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(var(--primary-rgb) / 0.3);
+  background: rgb(var(--indigo-rgb) / 0.5);
   border-radius: 9999px;
   border: 3px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(var(--primary-rgb) / 0.55);
+  background: rgb(var(--indigo-rgb) / 0.85);
   background-clip: content-box;
 }
 
@@ -107,7 +120,7 @@ body {
   }
 
   .glass-panel {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    background: linear-gradient(145deg, rgb(var(--indigo-rgb) / 0.08) 0%, rgb(var(--indigo-rgb) / 0.02) 100%);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -125,10 +138,10 @@ body {
     border-radius: inherit;
     padding: 1px;
     background: linear-gradient(140deg,
-        rgba(255, 255, 255, 0.32) 0%,
-        rgba(255, 255, 255, 0.05) 30%,
-        transparent 55%,
-        rgb(var(--primary-rgb) / 0.32) 100%);
+        rgb(var(--indigo-rgb) / 0.7) 0%,
+        rgb(var(--indigo-rgb) / 0.12) 35%,
+        transparent 60%,
+        rgb(var(--mint-rgb) / 0.35) 100%);
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
@@ -141,7 +154,36 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to right, #ffffff, #a3a3a3);
+    background-image: linear-gradient(to right, #ffffff, var(--indigo-soft));
+  }
+
+  /* Hollow display numerals — indigo outline, no fill. */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(var(--indigo-rgb) / 0.55);
+  }
+
+  .font-display {
+    font-family: var(--font-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Infinite horizontal strip. Content is rendered twice; we slide by half. */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 38s linear infinite;
+  }
+
+  @keyframes ping-soft {
+    0% { transform: scale(1); opacity: 0.7; }
+    80%, 100% { transform: scale(2.4); opacity: 0; }
+  }
+
+  .animate-ping-soft {
+    animation: ping-soft 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
 
   .grid-layout {
@@ -185,8 +227,8 @@ body {
   }
 
   .profile-frame:hover {
-    border-color: var(--primary);
-    box-shadow: 0 0 40px rgb(var(--primary-rgb) / 0.18);
+    border-color: var(--indigo);
+    box-shadow: 0 0 40px rgb(var(--indigo-rgb) / 0.3);
   }
 
   @keyframes pulse-subtle {
@@ -223,9 +265,10 @@ body {
   }
 
   .editorial-heading {
-    font-weight: 300;
-    letter-spacing: -0.04em;
-    line-height: 0.95;
+    font-family: var(--font-grotesk), var(--font-inter), sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
   }
 
   .human-border {

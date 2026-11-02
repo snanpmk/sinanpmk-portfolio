@@ -46,13 +46,18 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 hidden md:flex justify-center items-center transition-all duration-700",
+        "fixed top-0 left-0 right-0 z-50 hidden md:flex justify-center items-center transition-all duration-700 [&>div]:backdrop-blur-md",
         scrolled
-          ? "py-4 backdrop-blur-md bg-neutral-950/40"
-          : "py-8 bg-transparent"
+          ? "py-4"
+          : "py-8"
       )}
     >
-      <div className="flex items-center gap-10">
+      <div
+        className={cn(
+          "flex items-center gap-9 rounded-full px-8 py-3 border transition-all duration-700",
+          scrolled ? "border-indigo/30 bg-onyx/70 shadow-[0_10px_40px_-10px_rgba(99,49,251,0.5)]" : "border-transparent"
+        )}
+      >
         {navItems.map((item) => {
           const isActive = activeSection === item.id;
           return (
@@ -78,7 +83,7 @@ export function Navbar() {
               {isActive && (
                 <motion.span
                   layoutId="navDot"
-                  className="absolute -bottom-2 left-1/2 h-[3px] w-[3px] -translate-x-1/2 rounded-full bg-primary"
+                  className="absolute -bottom-2 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-mint shadow-[0_0_8px_var(--mint)]"
                   transition={{ type: "spring", stiffness: 400, damping: 34 }}
                 />
               )}

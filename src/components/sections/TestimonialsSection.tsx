@@ -44,14 +44,14 @@ export function TestimonialsSection() {
                   className="p-8 relative min-h-[400px] flex flex-col justify-between"
                 >
                   <div>
-                    <FaQuoteLeft className="text-primary/40 text-3xl mb-6" />
+                    <FaQuoteLeft className="text-indigo text-3xl mb-6" />
                     <p className="text-lg text-neutral-200 leading-relaxed italic mb-8">
                       &ldquo;{active.content}&rdquo;
                     </p>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-indigo/40">
                       <BlurImage
                         src={active.image}
                         alt={active.name}
@@ -64,7 +64,7 @@ export function TestimonialsSection() {
                       <h4 className="font-black text-white text-sm uppercase tracking-tight">
                         {active.name}
                       </h4>
-                      <p className="text-primary font-mono text-[10px] font-black uppercase tracking-widest">
+                      <p className="text-indigo-soft font-mono text-[10px] font-black uppercase tracking-widest">
                         {active.role}
                       </p>
                     </div>
@@ -79,7 +79,7 @@ export function TestimonialsSection() {
             <button
               onClick={prev}
               aria-label="Previous testimonial"
-              className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-primary hover:text-black hover:border-primary transition-all duration-300"
+              className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-mint hover:text-onyx hover:border-mint transition-all duration-300"
             >
               <FaChevronLeft className="w-3 h-3" />
             </button>
@@ -89,14 +89,14 @@ export function TestimonialsSection() {
                   key={i}
                   onClick={() => setActiveIndex(i)}
                   aria-label={`Go to testimonial ${i + 1}`}
-                  className={`h-1.5 transition-all duration-500 rounded-full ${i === activeIndex ? 'w-8 bg-primary' : 'w-2 bg-white/10'}`}
+                  className={`h-1.5 transition-all duration-500 rounded-full ${i === activeIndex ? 'w-8 bg-mint' : 'w-2 bg-indigo/40'}`}
                 />
               ))}
             </div>
             <button
               onClick={next}
               aria-label="Next testimonial"
-              className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-primary hover:text-black hover:border-primary transition-all duration-300"
+              className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-mint hover:text-onyx hover:border-mint transition-all duration-300"
             >
               <FaChevronRight className="w-3 h-3" />
             </button>
@@ -116,17 +116,17 @@ export function TestimonialsSection() {
               <GlassCard
                 variant="liquid"
                 tilt
-                className="p-10 h-full flex flex-col justify-between border-white/10 hover:border-primary/30 transition-colors duration-700"
+                className="p-10 h-full flex flex-col justify-between hover:border-indigo/50 transition-colors duration-700"
               >
                 <div>
-                  <FaQuoteLeft className="text-primary/30 text-4xl mb-6 group-hover/card:text-primary/60 transition-colors duration-500" />
+                  <FaQuoteLeft className="text-indigo text-4xl mb-6 group-hover/card:text-mint transition-colors duration-500" />
                   <p className="text-lg text-neutral-200 leading-relaxed italic mb-8">
                     &ldquo;{testimonial.content}&rdquo;
                   </p>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-primary/20 group-hover/card:border-primary/50 transition-colors duration-500">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-indigo/40 group-hover/card:border-mint/60 transition-colors duration-500">
                     <BlurImage
                       src={testimonial.image}
                       alt={testimonial.name}
@@ -139,7 +139,7 @@ export function TestimonialsSection() {
                     <h4 className="font-black text-white text-base tracking-tight leading-tight">
                       {testimonial.name}
                     </h4>
-                    <p className="text-primary font-mono text-[10px] font-black uppercase tracking-widest mt-1">
+                    <p className="text-indigo-soft font-mono text-[10px] font-black uppercase tracking-widest mt-1">
                       {testimonial.role}
                     </p>
                   </div>

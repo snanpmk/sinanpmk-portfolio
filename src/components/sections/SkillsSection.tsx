@@ -14,7 +14,8 @@ import {
 } from "react-icons/si";
 import { FaLaptopCode, FaCubes } from "react-icons/fa";
 import type { IconType } from "react-icons";
-import { TbApi } from "react-icons/tb";
+import { TbApi, TbSitemap, TbShieldLock, TbBroadcast, TbGauge, TbMicrophone, TbSparkles } from "react-icons/tb";
+import { SiGooglegemini, SiVercel } from "react-icons/si";
 
 const skillIcons: Record<string, { icon: IconType; color: string }> = {
   // Languages
@@ -31,6 +32,21 @@ const skillIcons: Record<string, { icon: IconType; color: string }> = {
   "Redux": { icon: SiRedux, color: "#764ABC" },
   "Redux Toolkit": { icon: SiRedux, color: "#764ABC" },
   "React Query": { icon: SiReactquery, color: "#FF4154" },
+  "TanStack Query": { icon: SiReactquery, color: "#FF4154" },
+
+  // Engineering
+  "Frontend Architecture": { icon: TbSitemap, color: "#A891FF" },
+  "RBAC": { icon: TbShieldLock, color: "#A891FF" },
+  "Real-time UIs (SSE)": { icon: TbBroadcast, color: "#A891FF" },
+  "REST API Integration": { icon: TbApi, color: "#A891FF" },
+  "Performance Optimization": { icon: TbGauge, color: "#A891FF" },
+
+  // AI
+  "LLM Integration (Gemini)": { icon: SiGooglegemini, color: "#88F9C0" },
+  "Speech-to-Text (Sarvam AI)": { icon: TbMicrophone, color: "#88F9C0" },
+  "AI-assisted Development": { icon: TbSparkles, color: "#88F9C0" },
+  "CI/CD": { icon: SiGithubactions, color: "#2088FF" },
+  "Vercel": { icon: SiVercel, color: "#FFFFFF" },
   "Zustand": { icon: FaCubes, color: "#B4761C" },
   "Bootstrap": { icon: SiBootstrap, color: "#7952B3" },
   "React Router": { icon: SiReactrouter, color: "#CA4245" },
@@ -49,7 +65,7 @@ const skillIcons: Record<string, { icon: IconType; color: string }> = {
   "GitHub": { icon: SiGithub, color: "#FFFFFF" },
   "GitHub Actions": { icon: SiGithubactions, color: "#2088FF" },
   "DigitalOcean": { icon: SiDigitalocean, color: "#0080FF" },
-  "Claude Code": { icon: SiClaude, color: "#D97757" },
+  "Claude Code": { icon: SiClaude, color: "#88F9C0" },
   "Postman": { icon: SiPostman, color: "#FF6C37" },
   "Firebase": { icon: SiFirebase, color: "#FFCA28" },
   "Razorpay": { icon: SiRazorpay, color: "#008ECC" },
@@ -65,7 +81,7 @@ export function SkillsSection() {
         <SectionHeader title="Expertise." />
 
         <div className="space-y-24">
-          {categories.map(([category, skills]) => (
+          {categories.map(([category, skills], ci) => (
             <div key={category} className="space-y-8">
               <motion.div
                 variants={fadeInLeft}
@@ -74,10 +90,11 @@ export function SkillsSection() {
                 viewport={VIEWPORT}
                 className="flex items-center gap-6"
               >
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-[0.2em] whitespace-nowrap">
+                <span className="font-mono text-xs text-indigo-soft/70">{String(ci + 1).padStart(2, "0")}</span>
+                <h3 className={`font-display text-xl md:text-2xl font-bold uppercase tracking-[0.12em] whitespace-nowrap ${category.startsWith("AI") ? "text-mint" : "text-white"}`}>
                   {category}
                 </h3>
-                <div className="h-px w-full bg-linear-to-r from-primary/20 to-transparent" />
+                <div className="h-px w-full bg-linear-to-r from-indigo/50 to-transparent" />
               </motion.div>
 
               <motion.div
@@ -88,7 +105,7 @@ export function SkillsSection() {
                 className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
               >
                 {skills.map((skill: string, i: number) => {
-                  const data = skillIcons[skill] || { icon: null, color: "#6366f1" };
+                  const data = skillIcons[skill] || { icon: null, color: "#A891FF" };
                   const Icon = data.icon;
 
                   return (
@@ -96,7 +113,7 @@ export function SkillsSection() {
                       <GlassCard
                         variant="liquid"
                         interactive
-                        className="group/skill p-6 h-full flex flex-col items-center justify-center gap-4 border-white/5 hover:border-primary/30 hover:-translate-y-1 transition-all duration-500 isolate"
+                        className="group/skill p-6 h-full flex flex-col items-center justify-center gap-4 hover:border-indigo/60 hover:-translate-y-1 transition-all duration-500 isolate"
                       >
                         <div
                           className="relative z-10 w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover/skill:scale-110"
